@@ -17,6 +17,8 @@ export class App {
      constructor(
           private storageService: StorageService
      ) {
-          this.isUserLoggedIn = this.storageService.isUserLoggedIn();
+          this.storageService.isLoggedIn$.subscribe(
+               status => this.isUserLoggedIn = status
+          );
      }
 }
