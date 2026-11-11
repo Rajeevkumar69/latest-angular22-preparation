@@ -1,12 +1,12 @@
 <div class="d-flex">
      <aside class="sidebar bg-dark text-white p-3">
-          <h6 class="mb-4 text-center border-bottom pb-2 text-uppercase">
+          <h6 class="mb-2 text-center border-bottom pb-2 text-uppercase">
                Angular Preparation
           </h6>
 
           <ul class="nav flex-column gap-1">
                <li class="nav-item" *ngFor="let item of menuItems">
-                    <button class="btn w-100 text-start d-flex align-items-center gap-2" [ngClass]="{
+                    <button class="btn w-100 text-start d-flex align-items-center " [ngClass]="{
                         'btn-primary': isActive(item.route),
                         'btn-dark': !isActive(item.route)
                     }" (click)="navigate(item.route)">

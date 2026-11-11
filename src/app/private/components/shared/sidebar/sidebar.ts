@@ -15,7 +15,7 @@ export class Sidebar implements OnInit {
                label: 'Reactive Forms',
                route: '/reactive-form',
                icon: 'bi bi-ui-checks'
-          }
+          },
      ];
 
      constructor(private router: Router) { }
