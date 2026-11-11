@@ -1,11 +1,13 @@
 <ng-container *ngIf="isUserLoggedIn; else login">
+
      <app-header></app-header>
-     <div class="d-flex">
-          <app-sidebar></app-sidebar>
-          <div class="flex-grow-1">
-               <router-outlet></router-outlet>
-          </div>
-     </div>
+
+     <app-sidebar></app-sidebar>
+
+     <main class="main-content">
+          <router-outlet></router-outlet>
+     </main>
+
 </ng-container>
 
 <ng-template #login>

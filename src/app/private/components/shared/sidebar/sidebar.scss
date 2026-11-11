@@ -1,0 +1,22 @@
+.sidebar {
+     position: fixed;
+     top: 56px;
+     left: 0;
+     bottom: 0;
+     width: 225px;
+
+     overflow-y: auto;
+     overflow-x: hidden;
+
+     flex-shrink: 0;
+     z-index: 1100;
+}
+
+.sidebar::-webkit-scrollbar {
+     width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+     background: #6c757d;
+     border-radius: 10px;
+}
