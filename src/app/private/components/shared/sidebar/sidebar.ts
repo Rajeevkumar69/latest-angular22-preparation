@@ -12,6 +12,16 @@ import { MenuItem } from '../../../shared/interfaces/common.interface';
 export class Sidebar implements OnInit {
      public menuItems: MenuItem[] = [
           {
+               label: 'Dashboard',
+               route: '/dashboard',
+               icon: 'bi bi-ui-checks'
+          },
+          {
+               label: 'Component',
+               route: '/component',
+               icon: 'bi bi-ui-checks'
+          },
+          {
                label: 'Reactive Forms',
                route: '/reactive-form',
                icon: 'bi bi-ui-checks'
