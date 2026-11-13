@@ -1,0 +1,116 @@
+<div class="container-fluid">
+     <div class="mb-4">
+          <h2 class="fw-bold">Angular Data Binding</h2>
+          <p class="text-muted">Learn how data moves between the component and the HTML template.</p>
+     </div>
+
+     <div class="card shadow-sm mb-3">
+          <div class="card-body">
+               <h5 class="fw-bold text-primary">1. Interpolation</h5>
+               <p class="text-muted">Interpolation is used to display component data in HTML using double curly braces
+                    {{ '{{ }}' }}.</p>
+
+               <div class="table-responsive">
+                    <table class="table table-bordered mb-0">
+                         <tbody>
+                              <tr>
+                                   <th>Product Name</th>
+                                   <th>Product Number</th>
+                                   <th>Product Price</th>
+                              </tr>
+                              <tr>
+                                   <td>{{productName}}</td>
+                                   <td>{{productNumber}}</td>
+                                   <td>{{productPrice}}</td>
+                              </tr>
+                         </tbody>
+                    </table>
+               </div>
+          </div>
+     </div>
+
+     <div class="card shadow-sm mb-3">
+          <div class="card-body">
+               <h5 class="fw-bold text-primary">2. Property Binding</h5>
+               <p class="text-muted">Property Binding is used to pass component data to HTML element properties using
+                    square brackets [ ].</p>
+
+               <div class="row g-3">
+                    <div class="col-md-4">
+                         <label class="form-label">Max Length</label>
+                         <input type="text" class="form-control" [maxLength]="maxAllowedChar">
+                    </div>
+
+                    <div class="col-md-4">
+                         <label class="form-label">Product Name</label>
+                         <input type="text" class="form-control" [value]="productName">
+                    </div>
+
+                    <div class="col-md-4">
+                         <label class="form-label">Dynamic Input Type</label>
+                         <input class="form-control" [type]="formDynamicType">
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="card shadow-sm mb-3">
+          <div class="card-body">
+               <h5 class="fw-bold text-primary">3. Event Binding</h5>
+               <p class="text-muted">Event Binding is used to call component methods when an event occurs in HTML using
+                    parentheses ( ).</p>
+
+               <div class="row g-3 align-items-center">
+                    <div class="col-md-4">
+                         <label class="form-label">Click Event</label>
+                         <div>
+                              <button (click)="showMessage()" type="button" class="btn btn-primary">
+                                   Click
+                              </button>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4">
+                         <label class="form-label">Change Event</label>
+                         <select class="form-select" (change)="onSelectChange($event)">
+                              <option value="" selected>Select</option>
+                              <option value="Mobile">Mobile</option>
+                              <option value="Laptop">Laptop</option>
+                              <option value="Charger">Charger</option>
+                              <option value="Headphone">Headphone</option>
+                         </select>
+                    </div>
+
+                    <div class="col-md-4">
+                         <label class="form-label">Mouse Events</label>
+                         <div class="d-flex align-items-center gap-3">
+                              <div (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()"
+                                   style="background-color: red; height: 50px; width: 50px; border-radius: 50%;">
+                              </div>
+                              <span class="text-muted small">Move mouse over the circle</span>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="card shadow-sm mb-3">
+          <div class="card-body">
+               <h5 class="fw-bold text-primary">4. Two-Way Data Binding</h5>
+               <p class="text-muted">Two-Way Data Binding is used to synchronize data between the component and HTML.
+                    Changes in either place are reflected in the other using [(ngModel)].</p>
+
+               <div class="row g-3">
+                    <div class="col-md-6">
+                         <label class="form-label">Enter Product Name</label>
+                         <input type="text" class="form-control" [(ngModel)]="productName">
+                    </div>
+
+                    <div class="col-md-6">
+                         <label class="form-label">Updated Product Name</label>
+                         <input type="text" class="form-control" [value]="productName" readonly>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>
