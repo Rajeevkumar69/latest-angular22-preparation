@@ -14,5 +14,14 @@ export const featuresRoutes: Routes = [
      {
           path: 'data-binding',
           loadComponent: () => import('../../components/main/data-binding/data-binding').then((c) => c.DataBinding)
+     },
+     {
+          path: 'routing',
+          loadComponent: () => import('../../components/main/routings/routings').then((c) => c.Routings)
+     },
+     {
+          path: '**',
+          redirectTo: 'dashboard',
+          pathMatch: 'full'
      }
 ];

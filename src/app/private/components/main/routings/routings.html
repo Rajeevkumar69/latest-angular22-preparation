@@ -1,0 +1,323 @@
+<div class="container-fluid routing-page">
+
+     <div class="page-header mb-4">
+          <h2 class="fw-bold mb-2">Angular Routing</h2>
+          <p class="text-muted mb-0">
+               Understand how Angular navigates between different pages without reloading the entire application.
+          </p>
+     </div>
+
+     <div class="card intro-card mb-4">
+          <div class="card-body">
+               <h5 class="fw-bold">What is Angular Routing?</h5>
+               <p class="mb-2">
+                    Angular Routing is a feature that allows users to navigate between different views or components
+                    of an application without refreshing the entire browser page.
+               </p>
+               <p class="mb-0 text-muted">
+                    It maps a URL path to a specific Angular component.
+               </p>
+          </div>
+     </div>
+
+     <div class="card mb-4">
+          <div class="card-body">
+               <h5 class="section-title">1. Why do we need Angular Routing?</h5>
+               <p class="text-muted">Routing helps us build Single Page Applications (SPA) with multiple views.</p>
+
+               <ul class="mb-0">
+                    <li>Navigate between different components.</li>
+                    <li>Avoid full-page browser reloads during navigation.</li>
+                    <li>Support URL-based navigation.</li>
+                    <li>Pass data through route parameters.</li>
+                    <li>Protect routes using Route Guards.</li>
+                    <li>Load components only when required using Lazy Loading.</li>
+               </ul>
+          </div>
+     </div>
+
+     <div class="card mb-4">
+          <div class="card-body">
+               <h5 class="section-title">2. Basic Routing Configuration</h5>
+               <p class="text-muted">
+                    Routes define which component should be displayed for a particular URL path.
+               </p>
+
+               <p class="fw-semibold mb-2">app.routes.ts</p>
+               <pre class="code-example"><code>import &#123; Routes &#125; from '@angular/router';
+import &#123; HomeComponent &#125; from './home/home.component';
+import &#123; AboutComponent &#125; from './about/about.component';
+
+export const routes: Routes = [
+     &#123;
+          path: 'home',
+          component: HomeComponent
+     &#125;,
+     &#123;
+          path: 'about',
+          component: AboutComponent
+     &#125;
+];</code></pre>
+
+
+
+
+          </div>
+     </div>
+
+     <div class="card mb-4">
+          <div class="card-body">
+               <h5 class="section-title">3. Router Outlet</h5>
+               <p class="text-muted">
+                    Router Outlet is a placeholder where Angular displays the component matching the current route.
+               </p>
+
+               <pre class="code-example"><code>&lt;nav&gt;
+     &lt;a routerLink="/home"&gt;Home&lt;/a&gt;
+     &lt;a routerLink="/about"&gt;About&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;router-outlet&gt;&lt;/router-outlet&gt;</code></pre>
+
+
+          </div>
+     </div>
+
+     <div class="card mb-4">
+          <div class="card-body">
+               <h5 class="section-title">4. RouterLink</h5>
+               <p class="text-muted">
+                    RouterLink is a directive used to navigate between routes without reloading the entire page.
+               </p>
+
+               <pre class="code-example"><code>&lt;a routerLink="/home"&gt;Home&lt;/a&gt;
+&lt;a routerLink="/about"&gt;About&lt;/a&gt;
+
+&lt;button (click)="goToHome()"&gt;
+     Go To Home
+&lt;/button&gt;</code></pre>
+
+               <p class="fw-semibold mt-3 mb-2">TypeScript</p>
+               <pre class="code-example"><code>import &#123; Router &#125; from '@angular/router';
+
+constructor(private router: Router) &#123;&#125;
+
+goToHome() &#123;
+     this.router.navigate(['/home']);
+&#125;</code></pre>
+
+               <p class="small text-muted mb-0 mt-2">
+                    RouterLink is used in HTML, whereas Router.navigate() is used for programmatic navigation in
+                    TypeScript.
+               </p>
+          </div>
+     </div>
+
+     <div class="card mb-4">
+          <div class="card-body">
+               <h5 class="section-title">5. Route Parameters</h5>
+               <p class="text-muted">
+                    Route Parameters are used to pass dynamic values through the URL, such as a user ID or product ID.
+               </p>
+
+               <p class="fw-semibold mb-2">Route Configuration</p>
+               <pre class="code-example"><code>&#123;
+     path: 'user/:id',
+     component: UserComponent
+&#125;</code></pre>
+
+               <p class="fw-semibold mt-3 mb-2">HTML</p>
+               <pre class="code-example"><code>&lt;a [routerLink]="['/user', 101]"&gt;
+     View User
+&lt;/a&gt;</code></pre>
+
+               <p class="fw-semibold mt-3 mb-2">TypeScript</p>
+               <pre class="code-example"><code>import &#123; ActivatedRoute &#125; from '@angular/router';
+
+constructor(private route: ActivatedRoute) &#123;
+     const userId = this.route.snapshot.paramMap.get('id');
+     console.log(userId);
+&#125;</code></pre>
+
+               <div class="example-output mt-3">
+                    <span class="small fw-semibold text-success">Example</span>
+                    <p class="mb-0"><code>/user/101</code> → User ID: 101</p>
+               </div>
+          </div>
+     </div>
+
+     <div class="card mb-4">
+          <div class="card-body">
+               <h5 class="section-title">6. Query Parameters</h5>
+               <p class="text-muted">
+                    Query Parameters are used to pass optional information through the URL, usually for filtering,
+                    searching or pagination.
+               </p>
+
+               <pre class="code-example"><code>&lt;a [routerLink]="['/products']"
+   [queryParams]="&#123; category: 'mobile', page: 1 &#125;"&gt;
+     View Products
+&lt;/a&gt;</code></pre>
+
+               <p class="fw-semibold mt-3 mb-2">TypeScript</p>
+               <pre class="code-example"><code>constructor(private route: ActivatedRoute) &#123;
+     this.route.queryParamMap.subscribe(params =&gt; &#123;
+          console.log(params.get('category'));
+          console.log(params.get('page'));
+     &#125;);
+&#125;</code></pre>
+
+               <div class="example-output mt-3">
+                    <span class="small fw-semibold text-success">Example URL</span>
+                    <p class="mb-0"><code>/products?category=mobile&amp;page=1</code></p>
+               </div>
+          </div>
+     </div>
+
+     <div class="card mb-4">
+          <div class="card-body">
+               <h5 class="section-title">7. Wildcard Route</h5>
+               <p class="text-muted">
+                    A Wildcard Route uses ** to match any URL that does not match the defined routes.
+                    It is commonly used to display a Page Not Found component.
+               </p>
+
+               <pre class="code-example"><code>&#123;
+     path: '**',
+     component: PageNotFoundComponent
+&#125;</code></pre>
+
+               <p class="small text-muted mb-0 mt-2">
+                    Important: Always define the wildcard route at the end of the routes array.
+               </p>
+          </div>
+     </div>
+
+     <div class="card mb-4">
+          <div class="card-body">
+               <h5 class="section-title">8. Child Routes (Nested Routing)</h5>
+               <p class="text-muted">
+                    Child Routes allow us to define routes inside another route. They are useful for creating
+                    layouts with nested views, such as a dashboard with multiple sections.
+               </p>
+
+               <pre class="code-example"><code>&#123;
+     path: 'dashboard',
+     component: DashboardComponent,
+     children: [
+          &#123;
+               path: 'profile',
+               component: ProfileComponent
+          &#125;,
+          &#123;
+               path: 'settings',
+               component: SettingsComponent
+          &#125;
+     ]
+&#125;</code></pre>
+
+
+          </div>
+     </div>
+
+     <div class="card mb-4">
+
+          <div class="card-body">
+               <pre class="code-example"><code>&#123;
+     path: 'dashboard',
+     component: DashboardComponent,
+     canActivate: [authGuard]
+&#125;</code></pre>
+
+               <p class="small text-muted mb-0 mt-2">
+                    Note: Client-side guards are not a security boundary. The backend must also enforce authorization.
+               </p>
+          </div>
+     </div>
+
+     <div class="card mb-4">
+          <div class="card-body">
+               <h5 class="section-title">10. Lazy Loading</h5>
+               <p class="text-muted">
+                    Lazy Loading loads a feature's code only when the user navigates to that route.
+                    It helps reduce the initial application loading cost.
+               </p>
+
+               <pre class="code-example"><code>&#123;
+     path: 'admin',
+     loadComponent: () =&gt;
+          import('./admin/admin.component')
+               .then(m =&gt; m.AdminComponent)
+&#125;</code></pre>
+
+               <p class="small text-muted mb-0 mt-2">
+                    This example uses loadComponent for a standalone component. Feature route configurations
+                    can also be lazy-loaded using loadChildren.
+               </p>
+          </div>
+     </div>
+
+     <div class="card revision-card">
+          <div class="card-body">
+               <h5 class="fw-bold mb-3">Quick Interview Revision</h5>
+
+               <div class="table-responsive">
+                    <table class="table table-bordered align-middle mb-0">
+                         <thead>
+                              <tr>
+                                   <th>Concept</th>
+                                   <th>Purpose</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              <tr>
+                                   <td>Routes</td>
+                                   <td>Map URL paths to components.</td>
+                              </tr>
+                              <tr>
+                                   <td>Router Outlet</td>
+                                   <td>Displays the matched component.</td>
+                              </tr>
+                              <tr>
+                                   <td>RouterLink</td>
+                                   <td>Navigate using HTML.</td>
+                              </tr>
+                              <tr>
+                                   <td>Router</td>
+                                   <td>Navigate programmatically.</td>
+                              </tr>
+                              <tr>
+                                   <td>ActivatedRoute</td>
+                                   <td>Read current route information.</td>
+                              </tr>
+                              <tr>
+                                   <td>Route Parameters</td>
+                                   <td>Pass dynamic values in URLs.</td>
+                              </tr>
+                              <tr>
+                                   <td>Query Parameters</td>
+                                   <td>Pass optional URL values.</td>
+                              </tr>
+                              <tr>
+                                   <td>Wildcard Route</td>
+                                   <td>Handle unmatched URLs.</td>
+                              </tr>
+                              <tr>
+                                   <td>Child Routes</td>
+                                   <td>Create nested navigation.</td>
+                              </tr>
+                              <tr>
+                                   <td>Route Guards</td>
+                                   <td>Control navigation.</td>
+                              </tr>
+                              <tr>
+                                   <td>Lazy Loading</td>
+                                   <td>Load code when required.</td>
+                              </tr>
+                         </tbody>
+                    </table>
+               </div>
+          </div>
+     </div>
+
+</div>

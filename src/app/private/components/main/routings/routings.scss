@@ -1,0 +1,107 @@
+.routing-page {
+     .page-header {
+          h2 {
+               color: #607bb5;
+          }
+     }
+
+     .card {
+          border: 1px solid #e5e7eb;
+          border-radius: 10px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+
+          .card-body {
+               padding: 22px;
+          }
+     }
+
+     .intro-card {
+          background: #f8fbff;
+          border-left: 4px solid #0d6efd;
+     }
+
+     .section-title {
+          font-size: 17px;
+          font-weight: 700;
+          color: #0d6efd;
+          margin-bottom: 12px;
+     }
+
+     p,
+     li {
+          font-size: 14px;
+          line-height: 1.7;
+     }
+
+     ul {
+          padding-left: 20px;
+
+          li {
+               margin-bottom: 5px;
+          }
+     }
+
+     .code-example {
+          background: #f5f7fa;
+          border: 1px solid #e2e8f0;
+          border-radius: 7px;
+          padding: 16px;
+          margin-bottom: 0;
+          overflow-x: auto;
+
+          code {
+               color: #334155;
+               font-size: 13px;
+               line-height: 1.8;
+               white-space: pre;
+          }
+     }
+
+     .example-output {
+          background: #f0fdf4;
+          border: 1px solid #dcfce7;
+          border-radius: 7px;
+          padding: 13px;
+     }
+
+     .revision-card {
+          background: #fafbfc;
+
+          table {
+               font-size: 13px;
+
+               th {
+                    background: #edf2f7;
+                    color: #334155;
+               }
+
+               td {
+                    color: #475569;
+               }
+          }
+     }
+
+     code {
+          color: #0d6efd;
+     }
+}
+
+@media (max-width: 576px) {
+     .routing-page {
+          .card .card-body {
+               padding: 15px;
+          }
+
+          .page-header h2 {
+               font-size: 23px;
+          }
+
+          .code-example {
+               padding: 12px;
+
+               code {
+                    font-size: 12px;
+               }
+          }
+     }
+}
