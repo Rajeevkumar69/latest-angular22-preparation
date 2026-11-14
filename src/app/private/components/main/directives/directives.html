@@ -1,0 +1,212 @@
+<div class="container-fluid ">
+     <div class="mb-4">
+          <h2 class="fw-bold mt-2">Directives</h2>
+          <p class="text-secondary">Dynamically change the appearance and behavior of HTML elements.</p>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body p-4">
+               <h5 class="fw-bold">What are Directives?</h5>
+               <p class="text-secondary mb-0">
+                    Directives are classes that add additional behavior to HTML elements
+                    or change their appearance.
+               </p>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-header bg-white py-3">
+               <h5 class="fw-bold mb-0">01. NgClass</h5>
+               <small class="text-secondary">Dynamic CSS Classes</small>
+          </div>
+
+          <div class="card-body p-4">
+               <p class="text-secondary">
+                    Definition: NgClass adds or removes CSS classes dynamically.
+               </p>
+
+               <div class="row g-3">
+                    <div class="col-md-4">
+                         <div class="border rounded-3 p-3">
+                              <h6 class="fw-semibold">Default Class</h6>
+                              <p class="p-3 text-white rounded mb-0" [ngClass]="defaultBgColor">
+                                   P-Tag
+                              </p>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4">
+                         <div class="border rounded-3 p-3">
+                              <h6 class="fw-semibold">Conditional Class</h6>
+                              <div class="p-3 text-white rounded"
+                                   [ngClass]="isCheckActive ? 'bg-primary' : 'bg-warning'">
+                                   {{ isCheckActive ? 'Active' : 'Inactive' }}
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4">
+                         <div class="border rounded-3 p-3">
+                              <h6 class="fw-semibold">Dynamic Class</h6>
+                              <div class="p-3 text-white rounded" [ngClass]="globalColor">
+                                   Global Color
+                              </div>
+                         </div>
+                    </div>
+               </div>
+
+               <div class="border rounded-3 p-3 mt-3">
+                    <div class="form-check mb-3">
+                         <input type="checkbox" class="form-check-input" id="activeCheck" [(ngModel)]="isCheckActive">
+                         <label class="form-check-label" for="activeCheck">
+                              Toggle Active Status
+                         </label>
+                    </div>
+
+                    <button class="btn btn-warning btn-sm me-2" (click)="setGlobalColor('bg-warning')">Yellow</button>
+                    <button class="btn btn-danger btn-sm me-2" (click)="setGlobalColor('bg-danger')">Red</button>
+                    <button class="btn btn-primary btn-sm" (click)="setGlobalColor('bg-primary')">Blue</button>
+               </div>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-header bg-white py-3">
+               <h5 class="fw-bold mb-0">02. NgStyle</h5>
+               <small class="text-secondary">Dynamic Inline Styling</small>
+          </div>
+
+          <div class="card-body p-4">
+               <p class="text-secondary">
+                    Definition: NgStyle applies inline CSS styles dynamically.
+               </p>
+
+               <div class="rounded-3 p-4 text-white"
+                    [ngStyle]="{'background-color': dynamicColor, 'font-size': '18px'}">
+                    Dynamic Background Color
+               </div>
+
+               <div class="mt-3 d-flex gap-2 flex-wrap">
+                    <button class="btn btn-primary btn-sm" (click)="dynamicColor = '#0d6efd'">Blue</button>
+                    <button class="btn btn-danger btn-sm" (click)="dynamicColor = '#dc3545'">Red</button>
+                    <button class="btn btn-success btn-sm" (click)="dynamicColor = '#198754'">Green</button>
+               </div>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-header bg-white py-3">
+               <h5 class="fw-bold mb-0">03. NgModel</h5>
+               <small class="text-secondary">Two-Way Data Binding</small>
+          </div>
+
+          <div class="card-body p-4">
+               <p class="text-secondary">
+                    Definition: NgModel keeps the input value and component property
+                    synchronized in both directions.
+               </p>
+
+               <input type="text" class="form-control" [(ngModel)]="userName" placeholder="Enter your name">
+
+               <div class="alert alert-info mt-3 mb-0">
+                    Hello, {{ userName || 'Guest' }}!
+               </div>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-header bg-white py-3">
+               <h5 class="fw-bold mb-0">04. NgStyle – Circle / Square</h5>
+               <small class="text-secondary">Dynamic Shape Styling</small>
+          </div>
+
+          <div class="card-body p-4">
+               <p class="text-secondary">
+                    We can also use NgStyle to change multiple CSS properties dynamically.
+               </p>
+
+               <div class="bg-light rounded-3 p-4 d-flex justify-content-center">
+                    <div [ngStyle]="elementType"></div>
+               </div>
+
+               <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-outline-danger btn-sm" (click)="changeElementType('circle')">Circle</button>
+                    <button class="btn btn-outline-primary btn-sm" (click)="changeElementType('square')">Square</button>
+                    <button class="btn btn-outline-warning btn-sm"
+                         (click)="changeElementType('tringle')">Tringle</button>
+               </div>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-header bg-white py-3">
+               <h5 class="fw-bold mb-0">05. Custom Directive</h5>
+               <small class="text-secondary">Directive Composition API</small>
+          </div>
+
+          <div class="card-body p-4">
+               <p class="text-secondary">
+                    Definition: A custom directive allows us to create reusable behavior.
+                    Using hostDirectives, we can combine multiple directives into one.
+               </p>
+
+               <div class="border rounded-3 p-4 text-center" tabindex="0">
+
+                    <h6 class="fw-bold">Combined Custom Directive</h6>
+                    <p class="text-secondary mb-0">
+                         Hover over this card or focus it using the keyboard.
+                    </p>
+               </div>
+
+               <div class="mt-3">
+                    <span class="badge bg-primary me-2">Hover Highlight</span>
+                    <span class="badge bg-success me-2">Focus Outline</span>
+                    <span class="badge bg-secondary">Rounded Card</span>
+               </div>
+
+               <div class="alert alert-light border mt-3 mb-0">
+                    <code></code> combines three custom directives
+                    using the Directive Composition API.
+               </div>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm">
+          <div class="card-body p-4">
+               <h5 class="fw-bold mb-3">Interview Quick Notes</h5>
+
+               <div class="table-responsive">
+                    <table class="table table-bordered align-middle mb-0">
+                         <thead class="table-light">
+                              <tr>
+                                   <th>Directive</th>
+                                   <th>Purpose</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              <tr>
+                                   <td><code>ngClass</code></td>
+                                   <td>Dynamic CSS classes</td>
+                              </tr>
+                              <tr>
+                                   <td><code>ngStyle</code></td>
+                                   <td>Dynamic inline styles</td>
+                              </tr>
+                              <tr>
+                                   <td><code>ngModel</code></td>
+                                   <td>Two-way data binding</td>
+                              </tr>
+                              <tr>
+                                   <td><code>Custom Directive</code></td>
+                                   <td>Create reusable behavior</td>
+                              </tr>
+                              <tr>
+                                   <td><code>hostDirectives</code></td>
+                                   <td>Combine multiple directives</td>
+                              </tr>
+                         </tbody>
+                    </table>
+               </div>
+          </div>
+     </div>
+</div>

@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { ComponentFeature } from '../../components/main/component-feature/component-feature';
-import { DataBinding } from '../../components/main/data-binding/data-binding';
 
 export const featuresRoutes: Routes = [
      {
@@ -22,6 +20,10 @@ export const featuresRoutes: Routes = [
      {
           path: 'control-flow',
           loadComponent: () => import('../../components/main/control-flow/control-flow').then((c) => c.ControlFlow)
+     },
+     {
+          path: 'directive',
+          loadComponent: () => import('../../components/main/directives/directives').then((c) => c.Directives)
      },
      {
           path: '**',
