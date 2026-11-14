@@ -20,6 +20,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/routings/routings').then((c) => c.Routings)
      },
      {
+          path: 'control-flow',
+          loadComponent: () => import('../../components/main/control-flow/control-flow').then((c) => c.ControlFlow)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'
