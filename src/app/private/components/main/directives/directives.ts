@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TextStyle } from '../../../shared/directives/text-style.directive';
 
 @Component({
-     imports: [CommonModule, FormsModule],
+     imports: [CommonModule, FormsModule, TextStyle],
      selector: 'app-directives',
      styleUrl: './directives.scss',
      templateUrl: './directives.html'
