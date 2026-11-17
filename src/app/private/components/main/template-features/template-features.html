@@ -1,0 +1,235 @@
+<div class="container-fluid template-features">
+     <div class="page-header mb-4">
+          <h3>Template Features</h3>
+          <p>Learn how to display data, handle events and access HTML elements in Angular.</p>
+     </div>
+
+
+     <div class=" p-4">
+          <div class="section-header mb-4">
+               <span class="section-number">01</span>
+               <div>
+                    <h5>Template Expressions</h5>
+                    <p>Used to display values and perform calculations directly in HTML.</p>
+               </div>
+          </div>
+
+          <div class="row g-3">
+               <div class="col-12 col-md-4">
+                    <div class="example-box">
+                         <h6>Title</h6>
+                         <h5>{{title}}</h5>
+                    </div>
+               </div>
+
+               <div class="col-12 col-md-4">
+                    <div class="example-box">
+                         <h6>Total Amount</h6>
+                         <h4 class="text-primary">{{amount * quantity | currency:'INR'}}</h4>
+                    </div>
+               </div>
+
+               <div class="col-12 col-md-4">
+                    <div class="example-box">
+                         <h6>Comparison Result</h6>
+                         <h5>{{amount > quantity}}</h5>
+                    </div>
+               </div>
+          </div>
+
+          <div class="row mt-1">
+               <div class="col-12 col-md-3">
+                    <div class="concept-box">
+                         <h6>Arithmetic Operators</h6>
+                         <p>Used to perform mathematical calculations.</p>
+                         <div class="operator-list">+ &nbsp; - &nbsp; * &nbsp; / &nbsp; %</div>
+
+                         <p class="result-value">Example: {{amount * quantity}}</p>
+                    </div>
+               </div>
+
+               <div class="col-12 col-md-3">
+                    <div class="concept-box">
+                         <h6>Comparison Operators</h6>
+                         <p>Used to compare two values and return true or false.</p>
+                         <div class="operator-list">== &nbsp; === &nbsp; != &nbsp; !== &nbsp; >= &nbsp; <=< /div>
+
+                                   <p class="result-value">Example: {{amount > quantity}}</p>
+                         </div>
+                    </div>
+               </div>
+               <div class="col-12 col-md-3">
+                    <div class="concept-box">
+                         <h6>Ternary Operator</h6>
+                         <p>Used to check a condition and return one of two values.</p>
+
+                         <p class="result-value">
+                              {{amount > 100 ? 'Expensive' : 'Not Expensive'}}
+                         </p>
+                    </div>
+               </div>
+
+               <div class="col-12 col-md-3">
+                    <div class="concept-box">
+                         <h6>Nullish Coalescing Operator (??)</h6>
+                         <p>Returns a default value when the original value is null or undefined.</p>
+
+                         <p class="result-value">{{undefinedValue ?? 0}}</p>
+                    </div>
+               </div>
+          </div>
+
+          <div class=" mb-4">
+               <div class=" p-4">
+                    <div class="section-header mb-4">
+                         <span class="section-number">02</span>
+                         <div>
+                              <h5>$event Object</h5>
+                              <p>Used to get event details when a user interacts with an element.</p>
+                         </div>
+                    </div>
+
+                    <div class="row g-3">
+                         <div class="col-12 col-md-6">
+                              <div class="example-box">
+                                   <h6>Click Event</h6>
+                                   <p>Executes a function when the button is clicked.</p>
+
+                                   <button class="btn btn-primary" type="button" (click)="showMessage($event)">
+                                        Click Me
+                                   </button>
+                              </div>
+                         </div>
+
+                         <div class="col-12 col-md-6">
+                              <div class="example-box">
+                                   <h6>Input Event</h6>
+                                   <p>Gets the input value whenever the user types.</p>
+
+                                   <input type="text" class="form-control" placeholder="Enter something..."
+                                        (input)="getValue($event)">
+
+                                   <p class="result-value">Value: {{inputValue}}</p>
+                              </div>
+                         </div>
+
+                         <div class="col-12 col-md-6">
+                              <div class="example-box">
+                                   <h6>Keyup Event</h6>
+                                   <p>Executes a function when a keyboard key is released.</p>
+
+                                   <input type="text" class="form-control" placeholder="Press any key..."
+                                        (keyup)="keyPressed($event)">
+
+                                   <p class="result-value">Last Key: {{lastKey}}</p>
+                              </div>
+                         </div>
+
+                         <div class="col-12 col-md-6">
+                              <div class="example-box">
+                                   <h6>Enter Key Event</h6>
+                                   <p>Executes a function when the Enter key is pressed.</p>
+
+                                   <input type="text" class="form-control" placeholder="Type and press Enter..."
+                                        (keyup.enter)="enterSearch($event)">
+
+                                   <p class="result-value">{{searchMessage}}</p>
+                              </div>
+                         </div>
+
+                         <div class="col-12 col-md-6">
+                              <div class="example-box">
+                                   <h6>Escape Key Event</h6>
+                                   <p>Clears the input when the Escape key is pressed.</p>
+
+                                   <input type="text" class="form-control" placeholder="Type and press Escape..."
+                                        [value]="escapeValue" (input)="escapeValue = getInputValue($event)"
+                                        (keyup.escape)="clear()">
+                              </div>
+                         </div>
+
+                    </div>
+               </div>
+          </div>
+
+          <div class=" mb-4">
+               <div class=" p-4">
+
+                    <div class="section-header mb-4">
+                         <span class="section-number">03</span>
+                         <div>
+                              <h5>Template Reference Variables (#)</h5>
+                              <p>Used to access HTML elements, components and directives directly from the template.</p>
+                         </div>
+                    </div>
+
+                    <div class="row g-3">
+
+                         <div class="col-12 col-md-6">
+                              <div class="example-box">
+                                   <h6>Access Input Value</h6>
+                                   <p>Use a reference variable to get the input value.</p>
+
+                                   <input type="text" class="form-control mb-3" placeholder="Enter name" #name>
+                                   <button class="btn btn-primary" type="button" (click)="showName(name.value)">
+                                        Show Name
+                                   </button>
+
+                                   <p class="result-value">{{displayName}}</p>
+                              </div>
+                         </div>
+
+                         <div class="col-12 col-md-6">
+                              <div class="example-box">
+                                   <h6>ViewChild</h6>
+                                   <p>Used to access a template element inside the TypeScript file.</p>
+
+                                   <input type="email" class="form-control mb-3" placeholder="Enter email" #email>
+                                   <button class="btn btn-primary" type="button" (click)="focusInput()">
+                                        Focus Email
+                                   </button>
+                              </div>
+                         </div>
+
+                         <div class="col-12 col-md-6">
+                              <div class="example-box">
+                                   <h6>Child Component</h6>
+                                   <p>Used to access public methods and properties of a child component.</p>
+
+                                   <app-child-component #childComponent></app-child-component>
+                                   <button class="btn btn-primary mt-3" type="button"
+                                        (click)="childComponent.showMessage()">
+                                        Show Message
+                                   </button>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class=" mb-4">
+               <div class=" p-4">
+
+                    <div class="section-header mb-4">
+                         <span class="section-number">04</span>
+                         <div>
+                              <h5>ng-template</h5>
+                              <p>Defines an HTML template that is not displayed until Angular is instructed to render
+                                   it.</p>
+                         </div>
+                    </div>
+
+                    <ng-template #message>
+                         <div class="template-message mt-3">
+                              Hello Angular 22!
+                         </div>
+                    </ng-template>
+
+                    <button class="btn btn-primary" type="button" (click)="showMessageTemplate = !showMessageTemplate">
+                         {{showMessageTemplate ? 'Hide Template' : 'Show Template'}}
+                    </button>
+
+                    <ng-container *ngTemplateOutlet="showMessageTemplate ? message : null"></ng-container>
+               </div>
+          </div>
+     </div>

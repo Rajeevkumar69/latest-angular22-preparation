@@ -26,6 +26,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/directives/directives').then((c) => c.Directives)
      },
      {
+          path: 'template-features',
+          loadComponent: () => import('../../components/main/template-features/template-features').then((c) => c.TemplateFeatures)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'
