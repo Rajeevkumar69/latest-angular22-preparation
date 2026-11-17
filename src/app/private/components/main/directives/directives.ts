@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TextStyle } from '../../../shared/directives/text-style.directive';
+import { HoverStyle } from '../../../shared/directives/hover-style.directive';
 
 @Component({
-     imports: [CommonModule, FormsModule, TextStyle],
+     imports: [CommonModule, FormsModule, TextStyle, HoverStyle],
      selector: 'app-directives',
      styleUrl: './directives.scss',
      templateUrl: './directives.html'
