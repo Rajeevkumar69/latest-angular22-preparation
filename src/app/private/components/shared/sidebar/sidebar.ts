@@ -47,6 +47,11 @@ export class Sidebar implements OnInit {
                icon: 'bi bi-ui-checks'
           },
           {
+               label: 'Signal',
+               route: '/signal',
+               icon: 'bi bi-ui-checks'
+          },
+          {
                label: 'Reactive Forms',
                route: '/reactive-form',
                icon: 'bi bi-ui-checks'

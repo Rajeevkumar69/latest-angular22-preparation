@@ -30,6 +30,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/template-features/template-features').then((c) => c.TemplateFeatures)
      },
      {
+          path: 'signal',
+          loadComponent: () => import('../../components/main/signals-features/signals-features').then((c) => c.SignalsFeatures)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'
