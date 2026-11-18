@@ -1,0 +1,48 @@
+.signals-page {
+     .card {
+          border-radius: 10px;
+     }
+
+     h3 {
+          font-size: 26px;
+     }
+
+     h5 {
+          font-size: 18px;
+     }
+
+     h6 {
+          font-size: 15px;
+     }
+
+     p,
+     li {
+          font-size: 14px;
+          line-height: 1.7;
+     }
+
+     pre {
+          white-space: pre-wrap;
+          overflow-x: auto;
+          font-size: 13px;
+          line-height: 1.7;
+     }
+
+     code {
+          color: #365d9d;
+     }
+
+     .bg-light {
+          background-color: #f7f8fa !important;
+     }
+}
+
+@media (max-width: 576px) {
+     .signals-page {
+          padding: 12px;
+
+          h3 {
+               font-size: 22px;
+          }
+     }
+}

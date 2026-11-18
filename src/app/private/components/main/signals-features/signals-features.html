@@ -1,1 +1,296 @@
-<p>signals-features works!</p>
+<div class="container-fluid signals-page">
+     <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+               <h3 class="fw-bold mb-1">Angular Signals</h3>
+               <p class="text-secondary mb-0">Manage reactive state and build efficient, responsive applications.</p>
+          </div>
+          <button type="button" class="btn btn-warning px-3 py-2" (click)="goToAdvanceSignalPage()">Advance
+               Signal</button>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body p-4">
+               <h5 class="fw-bold mb-3">1. What are Signals?</h5>
+               <p class="text-secondary mb-3">
+                    A Signal is a reactive wrapper around a value that Angular can track.
+                    When its value changes, Angular knows which parts of the application depend on it.
+               </p>
+
+               <div class="bg-light rounded p-3 mb-3">
+                    <code>count = signal(0);</code>
+               </div>
+
+               <p class="mb-0">
+                    Read a signal by calling it as a function. Angular automatically updates
+                    the template when the signal changes.
+               </p>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body p-4">
+               <h5 class="fw-bold mb-3">2. Why do we need Signals?</h5>
+               <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                         <div class="p-3 bg-light rounded h-100">
+                              <strong>Reactive State Management</strong>
+                              <p class="text-secondary small mb-0">Manage application state reactively.</p>
+                         </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                         <div class="p-3 bg-light rounded h-100">
+                              <strong>Automatic UI Updates</strong>
+                              <p class="text-secondary small mb-0">Update dependent template expressions when state
+                                   changes.</p>
+                         </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                         <div class="p-3 bg-light rounded h-100">
+                              <strong>Precise Reactivity</strong>
+                              <p class="text-secondary small mb-0">Track which signals are read by dependent
+                                   computations and views.</p>
+                         </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                         <div class="p-3 bg-light rounded h-100">
+                              <strong>Modern State Management</strong>
+                              <p class="text-secondary small mb-0">Build reactive features with Angular's built-in APIs.
+                              </p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body p-4">
+               <h5 class="fw-bold mb-3">3. Creating Signals</h5>
+               <p class="text-secondary">Signals can store different types of values.</p>
+
+               <div class="bg-light rounded p-3">
+                    <pre class="mb-0"><code>count = signal(0);
+
+name = signal("ABC");
+
+isLoggedIn = signal(true);
+
+items = signal&lt;string[]&gt;(["ABC", "BCD"]);
+
+user = signal(&#123;
+     name: "John",
+     age: 28
+&#125;);</code></pre>
+               </div>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body p-4">
+               <h5 class="fw-bold mb-3">4. Reading Signals in Template</h5>
+               <p class="text-secondary">
+                    Call the signal using parentheses to access its current value.
+               </p>
+
+               <div class="bg-light rounded p-3 mb-3">
+                    <code>{{ count() }}</code>
+               </div>
+
+               <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                    <div>
+                         <span class="text-secondary small">Current Count</span>
+                         <h2 class="fw-bold mb-0">{{ count() }}</h2>
+                    </div>
+                    <div class="d-flex gap-2 flex-wrap">
+                         <button class="btn btn-primary" type="button" (click)="increment()">Increment</button>
+                         <button class="btn btn-outline-secondary" type="button"
+                              (click)="decrement()">Decrement</button>
+                         <button class="btn btn-outline-success" type="button" (click)="reset()">Reset</button>
+                    </div>
+               </div>
+
+               <div class="bg-light rounded p-3 mt-3">
+                    <pre class="mb-0"><code>count.set(10);
+
+count.update(value => value + 1);</code></pre>
+               </div>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body p-4">
+               <h5 class="fw-bold mb-2">5. Types of Signals</h5>
+               <p class="text-secondary">Angular provides two main types of signals.</p>
+
+               <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                         <div class="border rounded p-3 h-100">
+                              <h6 class="fw-bold text-primary">Writable Signal</h6>
+                              <p class="text-secondary small">Created using signal(). Its value can be read and modified
+                                   using set() and update().</p>
+                              <pre class="bg-light rounded p-2 mb-0"><code>count = signal(0);
+
+count.set(10);
+
+count.update(value => value + 1);</code></pre>
+                         </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                         <div class="border rounded p-3 h-100">
+                              <h6 class="fw-bold text-primary">Computed Signal</h6>
+                              <p class="text-secondary small">Created using computed(). Its value is derived from other
+                                   signals and is read-only.</p>
+                              <pre class="bg-light rounded p-2 mb-0"><code>price = signal(100);
+quantity = signal(2);
+
+total = computed(
+     () => this.price() * this.quantity()
+);</code></pre>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body p-4">
+               <h5 class="fw-bold mb-3">6. Advanced Signals</h5>
+
+               <div class="border rounded p-3 mb-3">
+                    <h6 class="fw-bold">Computed Signal</h6>
+                    <p class="text-secondary small">
+                         A computed signal derives its value from one or more existing signals.
+                         Angular tracks its dependencies automatically.
+                    </p>
+
+                    <div class="row g-3 mb-3">
+                         <div class="col-6">
+                              <label class="form-label small text-secondary">Price</label>
+                              <input type="number" class="form-control" [value]="price()" (input)="updatePrice($event)">
+                         </div>
+                         <div class="col-6">
+                              <label class="form-label small text-secondary">Quantity</label>
+                              <input type="number" class="form-control" [value]="quantity()"
+                                   (input)="updateQuantity($event)">
+                         </div>
+                    </div>
+
+                    <div class="bg-light rounded p-3">
+                         <span class="text-secondary small">Calculated Total</span>
+                         <h4 class="fw-bold mb-0">{{ total() }}</h4>
+                    </div>
+
+                    <pre class="bg-light rounded p-3 mt-3 mb-0"><code>total = computed(
+     () => this.price() * this.quantity()
+);</code></pre>
+               </div>
+
+               <div class="border rounded p-3 mb-3">
+                    <h6 class="fw-bold">Effect API</h6>
+                    <p class="text-secondary small">
+                         effect() runs a side-effect function when signals read inside it change.
+                         It is useful for logging, analytics and synchronizing with external APIs
+                         such as browser storage.
+                    </p>
+                    <pre class="bg-light rounded p-3 mb-0"><code>effect(() => &#123;
+     console.log('Theme:', this.theme());
+
+     localStorage.setItem(
+          'theme',
+          this.theme()
+     );
+&#125;);</code></pre>
+               </div>
+
+               <div class="border rounded p-3">
+                    <h6 class="fw-bold">asReadonly() API</h6>
+                    <p class="text-secondary small">
+                         Creates a read-only view of a writable signal. Consumers can read
+                         its value but cannot modify it using set() or update().
+                    </p>
+                    <pre class="bg-light rounded p-3 mb-0"><code>count = signal(0);
+
+readOnlyCount = this.count.asReadonly();</code></pre>
+               </div>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body p-4">
+               <h5 class="fw-bold mb-3">7. Signals with Service</h5>
+               <p class="text-secondary">
+                    Signals can be maintained inside an Angular service and shared between components
+                    through dependency injection.
+               </p>
+
+               <div class="row g-3 mb-3">
+                    <div class="col-6">
+                         <div class="bg-light rounded p-3">
+                              <span class="text-secondary small">Cart Count</span>
+                              <h4 class="fw-bold mb-0">{{ cartService.count() }}</h4>
+                         </div>
+                    </div>
+                    <div class="col-6">
+                         <div class="bg-light rounded p-3">
+                              <span class="text-secondary small">Current Theme</span>
+                              <h4 class="fw-bold mb-0">{{ cartService.theme() }}</h4>
+                         </div>
+                    </div>
+               </div>
+
+               <div class="d-flex gap-2">
+                    <button class="btn btn-primary btn-sm" (click)="cartService.incrementCount()">Add to Cart</button>
+                    <button class="btn btn-outline-secondary btn-sm" (click)="cartService.toggleTheme()">Toggle
+                         Theme</button>
+               </div>
+
+               <pre class="bg-light rounded p-3 mt-3 mb-0"><code>cartService.count()
+
+cartService.theme()</code></pre>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body p-4">
+               <h5 class="fw-bold mb-3">8. Important Notes</h5>
+
+               <div class="mb-3">
+                    <h6 class="fw-bold">Computed()</h6>
+                    <ul class="text-secondary mb-0">
+                         <li>Derived State: Creates a value based on one or more existing signals.</li>
+                         <li>Lazy Evaluation: The computed value is evaluated when it is read.</li>
+                         <li>Memoization: Angular caches the result until its dependencies change.</li>
+                         <li>Read-Only: Cannot be directly modified using set() or update().</li>
+                         <li>Dynamic Dependencies: Only signals actually read during the latest computation are tracked.
+                         </li>
+                    </ul>
+               </div>
+
+               <hr>
+
+               <div class="mb-3">
+                    <h6 class="fw-bold">Effect()</h6>
+                    <ul class="text-secondary mb-0">
+                         <li>Reactive Side Effect: Runs in response to changes in signals it reads.</li>
+                         <li>Logging: Useful for debugging and application monitoring.</li>
+                         <li>External Synchronization: Can synchronize state with browser APIs such as localStorage.
+                         </li>
+                         <li>Effects are not intended for propagating state changes between signals.</li>
+                    </ul>
+               </div>
+
+               <hr>
+
+               <div>
+                    <h6 class="fw-bold">asReadonly()</h6>
+                    <ul class="text-secondary mb-0">
+                         <li>Creates a read-only view of a writable signal.</li>
+                         <li>Prevents consumers from directly calling set() or update().</li>
+                         <li>The original signal remains writable by its owner.</li>
+                         <li>Allows other parts of the application to read state without modifying it.</li>
+                    </ul>
+               </div>
+          </div>
+     </div>
+
+</div>

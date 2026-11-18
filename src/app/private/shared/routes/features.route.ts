@@ -31,7 +31,15 @@ export const featuresRoutes: Routes = [
      },
      {
           path: 'signal',
-          loadComponent: () => import('../../components/main/signals-features/signals-features').then((c) => c.SignalsFeatures)
+          loadComponent: () =>
+               import('../../components/main/signals-features/signals-features')
+                    .then(c => c.SignalsFeatures),
+     },
+     {
+          path: 'signal/advance-signal',
+          loadComponent: () =>
+               import('../../components/main/advance-signal/advance-signal')
+                    .then(c => c.AdvanceSignal)
      },
      {
           path: '**',
