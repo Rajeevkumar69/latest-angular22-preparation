@@ -31,32 +31,32 @@ export class SignalsFeatures {
           });
      }
 
-     public setCount(): void {
+     public setCount() {
           this.count.set(10);
      }
 
-     public updateCount(): void {
+     public updateCount() {
           this.count.update(value => value + 1);
      }
 
-     public increment(): void {
+     public increment() {
           this.count.update(value => value + 1);
      }
 
-     public decrement(): void {
+     public decrement() {
           this.count.update(value => Math.max(0, value - 1));
      }
 
-     public reset(): void {
+     public reset() {
           this.count.set(0);
      }
 
-     public updatePrice(event: Event): void {
+     public updatePrice(event: Event) {
           const value = Number((event.target as HTMLInputElement).value);
           this.price.set(Math.max(0, value));
      }
 
-     public updateQuantity(event: Event): void {
+     public updateQuantity(event: Event) {
           const value = Number((event.target as HTMLInputElement).value);
           this.quantity.set(Math.max(0, value));
      }
