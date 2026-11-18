@@ -1,9 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { ChildSignal } from '../../shared/child-signal/child-signal';
+import { ChildComponent } from '../../shared/child-component/child-component';
+import { CommonModule } from '@angular/common';
 
 @Component({
-     imports: [],
      selector: 'app-advance-signal',
-     styleUrl: './advance-signal.css',
-     templateUrl: './advance-signal.html'
+     styleUrl: './advance-signal.scss',
+     templateUrl: './advance-signal.html',
+     imports: [ChildSignal, CommonModule],
 })
-export class AdvanceSignal {}
+export class AdvanceSignal {
+     public userName = signal('Angular 22 Signal');
+
+     public quantity = signal(1);
+
+     public handleSave() {
+          console.log('Saved event occurred from child');
+     }
+
+     public handleSelection(user: string) {
+          console.log('Selected User:', user);
+     }
+}

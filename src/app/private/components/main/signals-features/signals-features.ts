@@ -61,7 +61,7 @@ export class SignalsFeatures {
           this.quantity.set(Math.max(0, value));
      }
 
-     public goToAdvanceSignalPage() {
-          this.router.navigate(['/signal', 'advance-signal']);
+     public goToAdvanceSignalPage(): void {
+          this.router.navigate(['/signal/advance-signal']);
      }
 }

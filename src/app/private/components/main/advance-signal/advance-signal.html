@@ -1,1 +1,220 @@
-<p>advance-signal works!</p>
+<div class="container-fluid advance-signal">
+
+     <div class="page-header mb-4">
+          <h4>Advance Signals</h4>
+          <p>Parent and Child Component Communication</p>
+     </div>
+
+     <div class="card definition-card mb-4">
+
+          <div class="card-header">
+               <h5>Angular Signal APIs</h5>
+               <p>Three ways to communicate between Parent and Child Components.</p>
+          </div>
+
+          <div class="card-body">
+               <div class="row g-3">
+
+                    <div class="col-12 col-md-4">
+                         <div class="api-definition input-api">
+                              <div class="api-title">
+                                   <h6>input()</h6>
+                                   <span>Parent → Child</span>
+                              </div>
+
+                              <p>
+                                   Used to receive data from the parent component.
+                                   The child can read the value but cannot directly
+                                   modify the input signal.
+                              </p>
+
+                              <div class="api-syntax">
+                                   <code>input.required&lt;string&gt;()</code>
+                              </div>
+
+                              <small>Property Binding: [property]</small>
+                         </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                         <div class="api-definition output-api">
+                              <div class="api-title">
+                                   <h6>output()</h6>
+                                   <span>Child → Parent</span>
+                              </div>
+
+                              <p>
+                                   Used to emit events or send data from the child
+                                   component to the parent component using emit().
+                              </p>
+
+                              <div class="api-syntax">
+                                   <code>output&lt;string&gt;()</code>
+                              </div>
+
+                              <small>Event Binding: (event)</small>
+                         </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                         <div class="api-definition model-api">
+                              <div class="api-title">
+                                   <h6>model()</h6>
+                                   <span>Two-way</span>
+                              </div>
+
+                              <p>
+                                   Used to receive and update a value between
+                                   parent and child components. Supports set()
+                                   and update().
+                              </p>
+
+                              <div class="api-syntax">
+                                   <code>model(1)</code>
+                              </div>
+
+                              <small>Two-way Binding: [(property)]</small>
+                         </div>
+                    </div>
+
+               </div>
+
+               <div class="comparison-table mt-4">
+                    <h6>Quick Comparison</h6>
+
+                    <div class="table-responsive">
+                         <table class="table table-bordered mb-0">
+                              <thead>
+                                   <tr>
+                                        <th>API</th>
+                                        <th>Purpose</th>
+                                        <th>Direction</th>
+                                        <th>Binding</th>
+                                   </tr>
+                              </thead>
+
+                              <tbody>
+                                   <tr>
+                                        <td><strong>input()</strong></td>
+                                        <td>Receive data</td>
+                                        <td>Parent → Child</td>
+                                        <td>[property]</td>
+                                   </tr>
+
+                                   <tr>
+                                        <td><strong>output()</strong></td>
+                                        <td>Emit event/data</td>
+                                        <td>Child → Parent</td>
+                                        <td>(event)</td>
+                                   </tr>
+
+                                   <tr>
+                                        <td><strong>model()</strong></td>
+                                        <td>Receive and update value</td>
+                                        <td>Both directions</td>
+                                        <td>[(property)]</td>
+                                   </tr>
+                              </tbody>
+                         </table>
+                    </div>
+               </div>
+
+          </div>
+     </div>
+
+
+     <div class="row g-4">
+
+          <div class="col-12 col-lg-6">
+               <div class="component-card h-100">
+
+                    <div class="component-header">
+                         <h5>1. Input API</h5>
+                         <span class="api-badge">Parent → Child</span>
+                    </div>
+
+                    <div class="component-body">
+
+                         <div class="component-section">
+                              <h6>Parent Component</h6>
+
+                              <div class="data-box">
+                                   <span>User Name</span>
+                              </div>
+                         </div>
+
+                         <div class="flow-label">Passing data to child ↓</div>
+
+                         <app-child-signal [userName]="userName()">
+                         </app-child-signal>
+
+                    </div>
+
+               </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+               <div class="component-card h-100">
+
+                    <div class="component-header">
+                         <h5>2. Output API</h5>
+                         <span class="api-badge output">Child → Parent</span>
+                    </div>
+
+                    <div class="component-body">
+
+                         <div class="component-section">
+                              <h6>Parent Component</h6>
+
+                              <p class="section-description">
+                                   Listen to events emitted by the child component.
+                              </p>
+
+                              <app-child-signal [userName]="userName()" (saved)="handleSave()"
+                                   (selected)="handleSelection($event)">
+                              </app-child-signal>
+                         </div>
+
+                    </div>
+
+               </div>
+          </div>
+
+          <div class="col-12">
+               <div class="component-card">
+
+                    <div class="component-header">
+                         <h5>3. Model API</h5>
+                         <span class="api-badge model">Two-way Binding</span>
+                    </div>
+
+                    <div class="component-body">
+
+                         <div class="row g-4 align-items-stretch">
+
+                              <div class="col-12 col-md-6">
+                                   <div class="component-section h-100">
+                                        <h6>Parent Component</h6>
+
+                                        <div class="data-box">
+                                             <span>Parent Quantity</span>
+                                             <strong>{{ quantity() }}</strong>
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="col-12 col-md-6">
+                                   <app-child-signal [userName]="userName()" [(quantity)]="quantity">
+                                   </app-child-signal>
+                              </div>
+
+                         </div>
+
+                    </div>
+
+               </div>
+          </div>
+
+     </div>
+
+</div>
