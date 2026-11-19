@@ -42,6 +42,10 @@ export const featuresRoutes: Routes = [
                     .then(c => c.AdvanceSignal)
      },
      {
+          path: 'service-dependency-injection',
+          loadComponent: () => import('../../components/main/service-dependency-injection/service-dependency-injection').then((c) => c.ServiceDependencyInjection)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'
