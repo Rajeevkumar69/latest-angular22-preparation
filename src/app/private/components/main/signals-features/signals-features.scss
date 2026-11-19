@@ -1,24 +1,50 @@
 .signals-page {
-     .card {
-          border-radius: 10px;
-     }
-
      h3 {
-          font-size: 26px;
+          color: #526fa8;
+     }
+     .card {
+          border: 1px solid #e9ecef;
+          border-radius: 10px;
+
+          .card-header,
+          .card-footer {
+               border-radius: 10px;
+          }
+
+          .border {
+               border-color: #e9ecef !important;
+               border-radius: 8px;
+               transition:
+                    border-color 0.2s ease,
+                    box-shadow 0.2s ease;
+
+               &:hover {
+                    border-color: #9bb5e8 !important;
+                    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+               }
+          }
      }
 
      h5 {
-          font-size: 18px;
+          font-size: 19px;
+          font-weight: 600;
+          color: #26364a;
      }
 
      h6 {
           font-size: 15px;
+          font-weight: 600;
+          color: #26364a;
      }
 
      p,
      li {
           font-size: 14px;
           line-height: 1.7;
+     }
+
+     p {
+          color: #64748b;
      }
 
      pre {
@@ -43,6 +69,10 @@
 
           h3 {
                font-size: 22px;
+          }
+
+          h5 {
+               font-size: 17px;
           }
      }
 }
