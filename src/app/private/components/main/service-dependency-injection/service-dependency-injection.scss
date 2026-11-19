@@ -1,0 +1,44 @@
+.services-page {
+     .page-header {
+          h3 {
+               font-size: 24px;
+               font-weight: 700;
+               color: #526fa8;
+          }
+
+          p {
+               font-size: 14px;
+          }
+     }
+
+     .card {
+          border: 1px solid #e5e7eb;
+          border-radius: 10px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+     }
+
+     h5 {
+          font-size: 16px;
+          font-weight: 600;
+          color: #343a40;
+     }
+
+     p {
+          font-size: 14px;
+          line-height: 1.7;
+     }
+
+     .badge {
+          font-weight: 600;
+          padding: 6px 9px;
+     }
+
+     h2 {
+          font-size: 30px;
+     }
+
+     button {
+          font-size: 13px;
+          padding: 7px 16px;
+     }
+}
