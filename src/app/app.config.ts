@@ -4,12 +4,14 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { routes } from './app.routes';
 import { provideOptimus } from '@openng/optimus-ui/config';
 import Aura from '@openng/optimus-ui-themes/aura';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
      providers: [
           provideBrowserGlobalErrorListeners(),
           provideAnimationsAsync(),
           provideRouter(routes),
+          provideHttpClient(),
           provideOptimus({
                theme: {
                     preset: Aura

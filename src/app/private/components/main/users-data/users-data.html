@@ -1,0 +1,107 @@
+<div class="container-fluid py-3">
+
+     <div class="row mb-3">
+          <div class="col-12">
+               <h3 class="fw-semibold mb-1">HTTP Client & Signals</h3>
+               <p class="text-muted mb-0">Practical example of API integration using Angular HttpClient and Signals.</p>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-4">
+          <div class="card-body p-4">
+               <h5 class="fw-semibold mb-3">Concept Overview</h5>
+
+               <div class="row g-4">
+                    <div class="col-12 col-lg-6">
+                         <div class="border rounded-3 p-3 h-100">
+                              <div class="d-flex align-items-center gap-2 mb-2">
+                                   <span class="badge bg-primary-subtle text-primary">HttpClient</span>
+                                   <h6 class="fw-semibold mb-0">HTTP Client</h6>
+                              </div>
+                              <p class="text-muted small mb-2">
+                                   Angular HttpClient is a built-in service used to communicate with backend APIs
+                                   through HTTP requests such as GET, POST, PUT, PATCH and DELETE.
+                              </p>
+                              <p class="small mb-0">
+                                   <strong>Purpose:</strong> Fetch, create, update and delete server-side data.
+                              </p>
+                         </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                         <div class="border rounded-3 p-3 h-100">
+                              <div class="d-flex align-items-center gap-2 mb-2">
+                                   <span class="badge bg-success-subtle text-success">Signals</span>
+                                   <h6 class="fw-semibold mb-0">Angular Signals</h6>
+                              </div>
+                              <p class="text-muted small mb-2">
+                                   Signals are reactive primitives used to manage application state.
+                                   When a signal's value changes, Angular automatically updates the dependent UI.
+                              </p>
+                              <p class="small mb-0">
+                                   <strong>Purpose:</strong> Store and reactively display API data in components.
+                              </p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm">
+          <div class="card-body p-4">
+
+               <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+                    <div>
+                         <h5 class="fw-semibold mb-1">Users Data</h5>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" (click)="createNewPost()">
+                         <i class="bi bi-plus-lg me-1"></i>
+                         Create Post
+                    </button>
+               </div>
+
+               <div class="row g-3 mb-2">
+                    <div class="col-12 col-sm-6 col-lg-4">
+                         <p class="text-muted small mb-1">Total Users <b>{{ users().length }}</b> </p>
+                    </div>
+               </div>
+
+               <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                         <thead class="table-light">
+                              <tr>
+                                   <th class="py-3">ID</th>
+                                   <th class="py-3">Title</th>
+                                   <th class="py-3">Body</th>
+                                   <th class="py-3 text-end">Actions</th>
+                              </tr>
+                         </thead>
+
+                         <tbody>
+                              @for (user of users(); track user.id) {
+                              <tr>
+                                   <td class="fw-semibold">{{ user.id }}</td>
+                                   <td class="text-break">{{ user.title }}</td>
+                                   <td class="text-muted small" style="min-width: 250px;">
+                                        {{ user.body }}
+                                   </td>
+                                   <td class="text-end text-nowrap">
+                                        <button type="button" class="btn btn-sm btn-outline-primary me-2"
+                                             (click)="updatePost(user)">
+                                             Update
+                                        </button>
+
+                                        <button type="button" class="btn btn-sm btn-outline-danger"
+                                             (click)="deletePost(user.id)">
+                                             Delete
+                                        </button>
+                                   </td>
+                              </tr>
+                              }
+                         </tbody>
+                    </table>
+               </div>
+          </div>
+     </div>
+</div>

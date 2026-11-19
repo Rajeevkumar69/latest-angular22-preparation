@@ -46,6 +46,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/service-dependency-injection/service-dependency-injection').then((c) => c.ServiceDependencyInjection)
      },
      {
+          path: 'users',
+          loadComponent: () => import('../../components/main/users-data/users-data').then((c) => c.UsersData)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'
