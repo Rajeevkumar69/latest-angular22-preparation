@@ -9,7 +9,7 @@ import { Component, input, model, output } from '@angular/core';
 export class ChildSignal {
      public userName = input.required<string>();
 
-     public saved = output<void>();
+     public saved = output();
 
      public selected = output<string>();
 

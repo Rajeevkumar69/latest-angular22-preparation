@@ -1,12 +1,10 @@
 <div class="container-fluid advance-signal">
-
      <div class="page-header mb-4">
           <h4>Advance Signals</h4>
           <p>Parent and Child Component Communication</p>
      </div>
 
      <div class="card definition-card mb-4">
-
           <div class="card-header">
                <h5>Angular Signal APIs</h5>
                <p>Three ways to communicate between Parent and Child Components.</p>
@@ -14,7 +12,6 @@
 
           <div class="card-body">
                <div class="row g-3">
-
                     <div class="col-12 col-md-4">
                          <div class="api-definition input-api">
                               <div class="api-title">
@@ -118,13 +115,10 @@
                          </table>
                     </div>
                </div>
-
           </div>
      </div>
 
-
      <div class="row g-4">
-
           <div class="col-12 col-lg-6">
                <div class="component-card h-100">
 
@@ -145,11 +139,9 @@
 
                          <div class="flow-label">Passing data to child ↓</div>
 
-                         <app-child-signal [userName]="userName()">
+                         <app-child-signal [userName]="userName">
                          </app-child-signal>
-
                     </div>
-
                </div>
           </div>
 
@@ -170,13 +162,11 @@
                                    Listen to events emitted by the child component.
                               </p>
 
-                              <app-child-signal [userName]="userName()" (saved)="handleSave()"
+                              <app-child-signal [userName]="userName" (saved)="handleSave()"
                                    (selected)="handleSelection($event)">
                               </app-child-signal>
                          </div>
-
                     </div>
-
                </div>
           </div>
 
@@ -189,9 +179,7 @@
                     </div>
 
                     <div class="component-body">
-
                          <div class="row g-4 align-items-stretch">
-
                               <div class="col-12 col-md-6">
                                    <div class="component-section h-100">
                                         <h6>Parent Component</h6>
@@ -204,17 +192,12 @@
                               </div>
 
                               <div class="col-12 col-md-6">
-                                   <app-child-signal [userName]="userName()" [(quantity)]="quantity">
+                                   <app-child-signal [userName]="userName" [(quantity)]="quantity">
                                    </app-child-signal>
                               </div>
-
                          </div>
-
                     </div>
-
                </div>
           </div>
-
      </div>
-
 </div>

@@ -1,6 +1,5 @@
 import { Component, signal } from '@angular/core';
 import { ChildSignal } from '../../shared/child-signal/child-signal';
-import { ChildComponent } from '../../shared/child-component/child-component';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,7 +9,7 @@ import { CommonModule } from '@angular/common';
      imports: [ChildSignal, CommonModule],
 })
 export class AdvanceSignal {
-     public userName = signal('Angular 22 Signal');
+     public userName = 'Angular 22 Signal';
 
      public quantity = signal(1);
 
