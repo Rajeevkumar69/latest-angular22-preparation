@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Angular model() Signal</h2>
+
+<mat-dialog-content class="mat-typography">
+     <h6>What is model() Signal?</h6>
+     <p class="pt-1">
+          Angular's model() creates a writable signal that supports two-way
+          data binding between parent and child components.
+     </p>
+     <hr>
+     <h6>How It Works</h6>
+     <p>
+          The parent passes a signal to the child using <code>[(propertyName)]</code>.
+          Both components can update the value, and changes are automatically synchronized.
+     </p>
+     <hr>
+     <h6>Real-World Example</h6>
+     <p>
+          Modal visibility: Parent opens the modal by setting isOpen to true.
+          Child closes it by setting isOpen to false. Both components reflect
+          the updated state automatically.
+     </p>
+     <hr>
+     <h6>Syntax</h6>
+     <p>
+          Child: <code>isOpen = model(false);</code> <br>
+          Parent: <code>[(isOpen)]="isModalOpen"</code>
+     </p>
+
+     <hr>
+     <h6>When to Use</h6>
+     <p>
+          Use model() for reusable components such as modals, pagination,
+          toggle switches, sliders and dropdowns where both parent and child
+          need to update the same value.
+     </p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+     <button mat-button (click)="closeDialog()">Cancel</button>
+</mat-dialog-actions>

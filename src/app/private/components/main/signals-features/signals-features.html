@@ -405,3 +405,66 @@ cartService.theme()</code></pre>
      </div>
 
 </div>
+
+<!--  -->
+<!--  -->
+<!-- Practice -->
+
+
+
+<div class="container-fluid">
+     <div class="row mt-2 mb-2">
+          <div class="col-12 col-md-6">
+               <p>Parent Component</p>
+               <h6>Example of output signal</h6>
+
+               <div class="card p-3 mt-2">
+                    <h5>User Form Data Received From Child</h5>
+
+                    @if (userData) {
+                    <p><b>Username:</b> {{ userData.username }}</p>
+                    <p><b>Age:</b> {{ userData.age }}</p>
+                    } @else {
+                    <p class="text-muted">No user data received yet.</p>
+                    }
+               </div>
+
+               <div class="row mt-2 mb-2">
+                    <div class="col-12">
+                         <h6>Example of model signal</h6>
+                         <div class="card p-3">
+                              <h5>Parent Component</h5>
+
+                              <p>
+                                   Modal Status:
+                                   <span [class.text-success]="isModalOpen()" [class.text-secondary]="!isModalOpen()">
+                                        {{ isModalOpen() ? 'Open' : 'Closed' }}
+                                   </span>
+                              </p>
+
+                              <button mat-raised-button color="primary" (click)="openModal()">
+                                   Open Modal
+                              </button>
+                         </div>
+                    </div>
+               </div>
+               <div class="row mt-2 mb-2">
+                    <div class="col-12 col-md-12">
+                         <h6>Example of view child</h6>
+                         <p>Child Component Count: {{ childComponent()?.count() ?? 0 }} </p>
+
+                         <div class="d-flex gap-2">
+                              <button mat-raised-button color="primary" (click)="increment()">Increment</button>
+                              <button mat-raised-button color="warn" (click)="decrement()">Decrement</button>
+                              <button mat-raised-button (click)="reset()">Reset</button>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+               <app-child-signal [userName]="'Rajeev Kumar'" (userFormData)="receiveUserData($event)">
+               </app-child-signal>
+          </div>
+     </div>
+</div>

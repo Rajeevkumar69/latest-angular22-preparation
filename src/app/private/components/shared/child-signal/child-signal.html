@@ -43,3 +43,29 @@
           </div>
      </div>
 </div>
+<div class="container-fluid">
+     <div class="row">
+          <div class="col-12 col-md-12">
+               <p>Child Component</p>
+          </div>
+     </div>
+     <div class="row">
+          <div class="col-12 col-md-6">
+               <p>User Name From Parent Com.</p>
+          </div>
+          <div class="col-12 col-md-6">
+               <b> {{userName()}} </b>
+          </div>
+     </div>
+     <div class="row mt-2">
+          <div class="col-12 col-md-12">
+               <p>User Form Inside Child</p>
+               <form [formGroup]="userForm" (ngSubmit)="submit()">
+                    <input type="text" placeholder="Enter name" class="form-control" formControlName="username"><br>
+                    <input type="number" class="form-control" placeholder="Enter age" formControlName="age"><br>
+
+                    <button type="submit" class="btn btn-primary">Save</button>
+               </form>
+          </div>
+     </div>
+</div>
