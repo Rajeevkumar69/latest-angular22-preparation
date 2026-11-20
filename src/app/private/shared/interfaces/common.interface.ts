@@ -10,3 +10,10 @@ export interface Post {
      title: string,
      body: string
 }
+
+export interface User {
+     name: string,
+     email: string,
+     password: string,
+     isChecked: boolean
+}
