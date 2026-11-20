@@ -20,7 +20,7 @@ export class UsersData implements OnInit {
      public getUsersData() {
           this.userDataService.getPosts().subscribe({
                next: ((res: any) => {
-                    this.users.set(res)
+                    this.users.set(res);
                }),
                error: ((err: any) => {
                     console.log('API Error');
@@ -33,7 +33,7 @@ export class UsersData implements OnInit {
                userId: 1,
                title: "My New Post New Post anditiis voluptate",
                body: "Loream Ipsum New Post anditiis voluptate anditiis voluptate porro vel nihil molestiae ut reiciendis qui aperiam non debitis possimus qui porro vel nihil molestiae ut reiciendis qui aperiam non debitis possimus qui Created"
-          }
+          };
 
           this.userDataService.addPost(payload).subscribe({
                next: ((res: any) => {
@@ -49,7 +49,7 @@ export class UsersData implements OnInit {
           const payload = {
                ...post,
                title: "New Updated Title"
-          }
+          };
 
           this.userDataService.updatePost(post.id, payload).subscribe({
                next: ((res: any) => {
@@ -68,7 +68,7 @@ export class UsersData implements OnInit {
      public deletePost(postId: number) {
           this.userDataService.deletePost(postId).subscribe({
                next: ((res: any) => {
-                    this.users.update(data => data.filter(item => item.id != postId))
+                    this.users.update(data => data.filter(item => item.id != postId));
                }),
                error: ((err: any) => {
                     console.log(err?.error?.message);
