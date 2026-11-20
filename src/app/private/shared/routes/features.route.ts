@@ -54,6 +54,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/http-interceptors/http-interceptors').then((c) => c.HttpInterceptors)
      },
      {
+          path: 'signal-form',
+          loadComponent: () => import('../../components/main/signal-forms/signal-forms').then((c) => c.SignalForms)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'
