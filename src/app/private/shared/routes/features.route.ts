@@ -50,6 +50,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/users-data/users-data').then((c) => c.UsersData)
      },
      {
+          path: 'error-handling',
+          loadComponent: () => import('../../components/main/http-interceptors/http-interceptors').then((c) => c.HttpInterceptors)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'

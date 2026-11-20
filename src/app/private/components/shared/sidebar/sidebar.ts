@@ -62,6 +62,11 @@ export class Sidebar implements OnInit {
                icon: 'bi bi-ui-checks'
           },
           {
+               label: 'HTTP Interceptor',
+               route: '/error-handling',
+               icon: 'bi bi-ui-checks'
+          },
+          {
                label: 'Reactive Forms',
                route: '/reactive-form',
                icon: 'bi bi-ui-checks'

@@ -1,0 +1,178 @@
+<div class="container-fluid">
+     <div class="page-header mb-2">
+          <h3 class="fw-semibold mb-1">HTTP Interceptors</h3>
+          <p class=" text-muted small mb-0">Centralized HTTP Request & Response Management</p>
+     </div>
+     <div class="card border-0 shadow-sm mb-3">
+          <div class="card-body p-4">
+               <p class="text-secondary mb-3">
+                    <strong>HTTP Interceptors</strong> allow us to handle common logic for
+                    multiple HTTP requests in one place, instead of repeating the same
+                    code in different services.
+               </p>
+
+               <div class="bg-light rounded-3 p-3">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                         <i class="bi bi-lightbulb text-warning"></i>
+                         <h6 class="fw-semibold mb-0">Why use HTTP Interceptors?</h6>
+                    </div>
+                    <p class="text-secondary small mb-0">
+                         Interceptors sit between your Angular application and the backend API.
+                         They can inspect or modify outgoing requests and incoming responses
+                         before they reach their destination.
+                    </p>
+               </div>
+
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-3">
+          <div class="card-body p-4">
+
+               <h6 class="fw-semibold mb-3">Common Use Cases</h6>
+
+               <div class="row g-3">
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                         <div class="border rounded-3 p-3 h-100">
+                              <div class="d-flex align-items-center gap-2 mb-2">
+                                   <i class="bi bi-shield-lock text-primary fs-5"></i>
+                                   <span class="fw-semibold small">Authentication</span>
+                              </div>
+                              <p class="text-muted small mb-0">
+                                   Attach authentication tokens to outgoing API requests.
+                              </p>
+                         </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                         <div class="border rounded-3 p-3 h-100">
+                              <div class="d-flex align-items-center gap-2 mb-2">
+                                   <i class="bi bi-key text-success fs-5"></i>
+                                   <span class="fw-semibold small">JWT Authorization</span>
+                              </div>
+                              <p class="text-muted small mb-0">
+                                   Send JWT access tokens through the Authorization header.
+                              </p>
+                         </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                         <div class="border rounded-3 p-3 h-100">
+                              <div class="d-flex align-items-center gap-2 mb-2">
+                                   <i class="bi bi-exclamation-triangle text-danger fs-5"></i>
+                                   <span class="fw-semibold small">Global Error Handling</span>
+                              </div>
+                              <p class="text-muted small mb-0">
+                                   Handle common HTTP errors such as 401, 403 and 500.
+                              </p>
+                         </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                         <div class="border rounded-3 p-3 h-100">
+                              <div class="d-flex align-items-center gap-2 mb-2">
+                                   <i class="bi bi-hourglass-split text-info fs-5"></i>
+                                   <span class="fw-semibold small">Loading Indicators</span>
+                              </div>
+                              <p class="text-muted small mb-0">
+                                   Manage global loading indicators during HTTP requests.
+                              </p>
+                         </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                         <div class="border rounded-3 p-3 h-100">
+                              <div class="d-flex align-items-center gap-2 mb-2">
+                                   <i class="bi bi-arrow-repeat text-warning fs-5"></i>
+                                   <span class="fw-semibold small">Retry Logic</span>
+                              </div>
+                              <p class="text-muted small mb-0">
+                                   Retry failed requests when appropriate.
+                              </p>
+                         </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                         <div class="border rounded-3 p-3 h-100">
+                              <div class="d-flex align-items-center gap-2 mb-2">
+                                   <i class="bi bi-database-check text-primary fs-5"></i>
+                                   <span class="fw-semibold small">Caching</span>
+                              </div>
+                              <p class="text-muted small mb-0">
+                                   Cache suitable HTTP responses to reduce unnecessary API calls.
+                              </p>
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm mb-3">
+          <div class="card-body p-4">
+
+               <h6 class="fw-semibold mb-1">Types of HTTP Interceptors</h6>
+               <p class="text-muted small mb-3">
+                    Angular supports two approaches for implementing HTTP interceptors.
+               </p>
+
+               <div class="row g-3">
+
+                    <div class="col-12 col-lg-6">
+                         <div class="border rounded-3 p-3 h-100">
+                              <div class="d-flex align-items-center justify-content-between mb-3">
+                                   <span class="badge bg-primary bg-opacity-10 text-primary">01</span>
+                                   <span class="badge bg-success bg-opacity-10 text-success">Recommended</span>
+                              </div>
+
+                              <h6 class="fw-semibold">Functional Interceptors</h6>
+
+                              <p class="text-secondary small">
+                                   Functional interceptors use the <code>HttpInterceptorFn</code>
+                                   type and are implemented as standalone functions.
+                                   They are the recommended approach for modern Angular applications.
+                              </p>
+
+                              <div class="bg-light rounded-3 p-3">
+                                   <p class="small fw-semibold mb-2">Key Characteristics</p>
+                                   <ul class="small text-secondary mb-0 ps-3">
+                                        <li>Function-based implementation</li>
+                                        <li>Uses HttpInterceptorFn</li>
+                                        <li>Supports inject() for dependency injection</li>
+                                        <li>Configured using withInterceptors()</li>
+                                   </ul>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                         <div class="border rounded-3 p-3 h-100">
+                              <div class="d-flex align-items-center justify-content-between mb-3">
+                                   <span class="badge bg-primary bg-opacity-10 text-primary">02</span>
+                                   <span class="badge bg-secondary bg-opacity-10 text-secondary">Traditional</span>
+                              </div>
+
+                              <h6 class="fw-semibold">DI-based / Class Interceptors</h6>
+
+                              <p class="text-secondary small">
+                                   DI-based interceptors use the <code>HttpInterceptor</code>
+                                   interface and class-based implementation.
+                                   They follow the traditional Angular interceptor approach.
+                              </p>
+
+                              <div class="bg-light rounded-3 p-3">
+                                   <p class="small fw-semibold mb-2">Key Characteristics</p>
+                                   <ul class="small text-secondary mb-0 ps-3">
+                                        <li>Class-based implementation</li>
+                                        <li>Implements HttpInterceptor</li>
+                                        <li>Uses constructor dependency injection</li>
+                                        <li>Configured using HTTP_INTERCEPTORS provider</li>
+                                   </ul>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>

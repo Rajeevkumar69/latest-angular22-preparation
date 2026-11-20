@@ -6,13 +6,13 @@
 
           <ul class="nav flex-column gap-1">
                <li class="nav-item" *ngFor="let item of menuItems">
-                    <button class="btn w-100 text-start d-flex align-items-center " [ngClass]="{
+                    <button class="btn btn-sm w-100 text-start d-flex align-items-center " [ngClass]="{
                         'btn-primary': isActive(item.route),
                         'btn-dark': !isActive(item.route)
                     }" (click)="navigate(item.route)">
 
                          <i [class]="item.icon"></i>
-                         <span class="fs-13">{{ item.label }}</span>
+                         <span style="font-size: 14px;">{{ item.label }}</span>
                     </button>
                </li>
           </ul>
