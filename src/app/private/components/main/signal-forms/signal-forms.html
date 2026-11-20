@@ -1,1 +1,85 @@
-<p>signal-forms works!</p>
+<div class="container-fluid">
+     <div class="page-header mb-2">
+          <h3 class="fw-semibold mb-1">Angular Signal Forms</h3>
+          <p class=" text-muted small mb-0">User Registration</p>
+     </div>
+     <div class="card border-0 shadow-sm mb-2">
+          <div class="card-body p-4">
+               <p class="text-secondary small mb-3">
+                    Signal Forms provide a signal-based approach to managing forms in Angular.
+                    They offer reactive form state, built-in validation, and seamless integration
+                    with Angular signals.
+               </p>
+
+               <div class="row g-2">
+                    <div class="col-12 col-md-4">
+                         <div class="bg-light rounded-3 p-3 h-100">
+                              <i class="bi bi-lightning-charge text-primary mb-2"></i>
+                              <p class="fw-semibold small mb-1">Reactive State</p>
+                              <p class="text-muted small mb-0">Form values are managed using signals.</p>
+                         </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                         <div class="bg-light rounded-3 p-3 h-100">
+                              <i class="bi bi-shield-check text-success mb-2"></i>
+                              <p class="fw-semibold small mb-1">Validation</p>
+                              <p class="text-muted small mb-0">Define validation rules directly on form fields.</p>
+                         </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                         <div class="bg-light rounded-3 p-3 h-100">
+                              <i class="bi bi-arrow-repeat text-info mb-2"></i>
+                              <p class="fw-semibold small mb-1">Signal Integration</p>
+                              <p class="text-muted small mb-0">Form state updates reactively.</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="card border-0 shadow-sm">
+          <div class="card-body p-4">
+               <div class="mb-4">
+                    <h6 class="fw-semibold mb-1">Registration Details</h6>
+               </div>
+
+               <form [formRoot]="profileForm">
+
+                    <div class="mb-3">
+                         <label for="name" class="form-label fw-medium">Name</label>
+                         <input id="name" type="text" class="form-control" [formField]="profileForm.name"
+                              placeholder="Enter Name" />
+                         @if (profileForm.name().invalid() && profileForm.name().touched()) {
+                         <code class="text-danger small">Name is required</code>
+                         }
+                    </div>
+
+                    <div class="mb-3">
+                         <label for="email" class="form-label fw-medium">Email</label>
+                         <input id="email" type="email" class="form-control" [formField]="profileForm.email"
+                              placeholder="Enter Email" />
+                         @if (profileForm.email().invalid() && profileForm.email().touched()) {
+                         <code class="text-danger small">Email is required</code>
+                         }
+                    </div>
+
+                    <div class="mb-4">
+                         <label for="password" class="form-label fw-medium">Password</label>
+                         <input id="password" type="password" class="form-control" [formField]="profileForm.password"
+                              placeholder="Enter Password" />
+                         @if (profileForm.password().invalid() && profileForm.password().touched()) {
+                         <code class="text-danger small">Password is required</code>
+                         }
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                         <button mat-raised-button color="primary" type="submit">
+                              Save
+                         </button>
+                    </div>
+               </form>
+          </div>
+     </div>
+</div>
