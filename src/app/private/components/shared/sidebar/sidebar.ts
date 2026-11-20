@@ -76,6 +76,11 @@ export class Sidebar implements OnInit {
                route: '/reactive-form',
                icon: 'bi bi-ui-checks'
           },
+          {
+               label: 'Template Driven Forms',
+               route: '/template-driven-form',
+               icon: 'bi bi-ui-checks'
+          },
      ];
 
      constructor(private router: Router) { }

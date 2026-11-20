@@ -58,6 +58,14 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/signal-forms/signal-forms').then((c) => c.SignalForms)
      },
      {
+          path: 'reactive-form',
+          loadComponent: () => import('../../components/main/reactive-forms/reactive-forms').then((c) => c.ReactiveForms)
+     },
+     {
+          path: 'template-driven-form',
+          loadComponent: () => import('../../components/main/template-driven-forms/template-driven-forms').then((c) => c.TemplateDrivenForms)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'
