@@ -1,0 +1,86 @@
+<div class="container-fluid">
+     <div class="mb-4">
+          <h2 class="page-title mt-2">Angular Change Detection</h2>
+          <p class="text-muted mb-0">
+               Change detection is the process by which Angular check
+               wether any data has changed & update the webpage to display
+               the latest value
+          </p>
+     </div>
+     <div class="row">
+          <div class="col-12">
+               <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body">
+                         <h6 class="fw-semibold mb-3">Angular provides 2 Change Detection Strategies</h6>
+
+                         <div class="row g-3">
+                              <div class="col-12 col-md-6">
+                                   <div class="p-3 border rounded h-100">
+                                        <span class="badge bg-primary mb-2">01</span>
+                                        <h6 class="fw-semibold">Eager</h6>
+                                        <p class="text-secondary mb-0">
+                                             Angular Check the component whenever the Change detection traversal reaches
+                                             it
+                                        </p>
+                                   </div>
+                              </div>
+
+                              <div class="col-12 col-md-6">
+                                   <div class="p-3 border rounded h-100">
+                                        <span class="badge bg-success mb-2">02</span>
+                                        <h6 class="fw-semibold">OnPush</h6>
+                                        <p class="text-secondary mb-0">
+                                             Angular Can Skip Cheking The Component when it doesn't
+                                             need to be checked
+                                        </p>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="alert alert-info mt-3 mb-0 py-2">
+                              <pre class="mb-0 text-dark" style="white-space: pre-wrap;">In Angular 22 latest version OnPush is the default change detection Strategies 
+But we can still configure the component to use the eager explicitely.</pre>
+                         </div>
+                    </div>
+               </div>
+
+               <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+
+                         <div class="d-flex justify-content-between align-items-center mb-3">
+                              <h5 class="fw-semibold mb-0">Change Detection Demo</h5>
+                         </div>
+
+                         <div class="p-3 bg-light rounded mb-3">
+                              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+
+                                   <span class=" ">Counter: {{ counter() }}</span>
+                              </div>
+
+                              <button (click)="counter.update(c => c + 1)" type="button"
+                                   class="btn btn-primary btn-sm mt-3">
+                                   <i class="bi bi-plus-lg me-1"></i>
+                                   Counter +
+                              </button>
+                         </div>
+
+                         <div class="row g-3">
+                              <div class="col-12 col-md-6">
+                                   <div class="border rounded p-3 h-100">
+                                        <h6 class="fw-semibold mb-3">Eager Child Component</h6>
+                                        <app-eager-child></app-eager-child>
+                                   </div>
+                              </div>
+
+                              <div class="col-12 col-md-6">
+                                   <div class="border rounded p-3 h-100">
+                                        <h6 class="fw-semibold mb-3">OnPush Child Component</h6>
+                                        <app-onpush-child [count]="counter()"></app-onpush-child>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>
