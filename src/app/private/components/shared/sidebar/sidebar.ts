@@ -91,6 +91,11 @@ export class Sidebar implements OnInit {
                route: '/lifecycle-hooks',
                icon: 'bi bi-ui-checks'
           },
+          {
+               label: 'Change Detection',
+               route: '/change-detection',
+               icon: 'bi bi-ui-checks'
+          },
      ];
 
      constructor(private router: Router) { }

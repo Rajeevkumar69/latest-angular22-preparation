@@ -74,6 +74,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/lifecycle-hooks/lifecycle-hooks').then((c) => c.LifecycleHooks)
      },
      {
+          path: 'change-detection',
+          loadComponent: () => import('../../components/main/change-detections/change-detections').then((c) => c.ChangeDetections)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'
