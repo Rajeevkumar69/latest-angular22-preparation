@@ -1,12 +1,11 @@
 import { Component, signal } from '@angular/core';
-import { ChildSignal } from '../../shared/child-signal/child-signal';
 import { CommonModule } from '@angular/common';
 
 @Component({
      selector: 'app-advance-signal',
      styleUrl: './advance-signal.scss',
      templateUrl: './advance-signal.html',
-     imports: [ChildSignal, CommonModule],
+     imports: [CommonModule],
 })
 export class AdvanceSignal {
      public userName = 'Angular 22 Signal';

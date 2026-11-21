@@ -1,0 +1,105 @@
+.pipes-page {
+     .page-title {
+          font-size: 27px;
+          font-weight: 700;
+          color: #607bb5;
+     }
+     .card {
+          border-radius: 12px;
+          background: #ffffff;
+     }
+
+     h3 {
+          font-size: 25px;
+          color: #212529;
+     }
+
+     h5 {
+          font-size: 17px;
+          color: #212529;
+     }
+
+     h6 {
+          font-size: 14px;
+          color: #343a40;
+     }
+
+     p {
+          font-size: 14px;
+          line-height: 1.7;
+     }
+
+     .definition-box {
+          padding: 16px;
+          border: 1px solid #e9ecef;
+          border-radius: 9px;
+          background: #f8f9fa;
+
+          p {
+               color: #6c757d;
+               font-size: 13px;
+          }
+     }
+
+     .example-box {
+          padding: 16px;
+          border: 1px solid #e9ecef;
+          border-radius: 9px;
+          background: #ffffff;
+
+          pre {
+               padding: 12px;
+               margin: 10px 0;
+               overflow-x: auto;
+               white-space: pre-wrap;
+               word-break: break-word;
+               border-radius: 7px;
+               background: #212529;
+               color: #e9ecef;
+               font-size: 12px;
+               line-height: 1.7;
+          }
+
+          code {
+               color: inherit;
+          }
+     }
+
+     .output-box {
+          padding: 12px;
+          border: 1px solid #dcebe4;
+          border-radius: 7px;
+          background: #f4faf6;
+          overflow-wrap: anywhere;
+
+          p,
+          h5 {
+               margin-top: 5px;
+          }
+
+          pre {
+               margin-top: 8px;
+               background: #ffffff;
+               color: #212529;
+               border: 1px solid #e9ecef;
+          }
+     }
+
+     .badge {
+          font-weight: 600;
+          letter-spacing: 0.3px;
+          padding: 6px 9px;
+     }
+
+     @media (max-width: 767px) {
+          padding: 8px;
+
+          .card-body {
+               padding: 16px !important;
+          }
+
+          h3 {
+               font-size: 21px;
+          }
+     }
+}

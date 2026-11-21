@@ -66,6 +66,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/template-driven-forms/template-driven-forms').then((c) => c.TemplateDrivenForms)
      },
      {
+          path: 'pipe',
+          loadComponent: () => import('../../components/main/pipe-features/pipe-features').then((c) => c.PipeFeatures)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'

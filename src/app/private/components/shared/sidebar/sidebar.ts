@@ -81,6 +81,11 @@ export class Sidebar implements OnInit {
                route: '/template-driven-form',
                icon: 'bi bi-ui-checks'
           },
+          {
+               label: 'Pipe Features',
+               route: '/pipe',
+               icon: 'bi bi-ui-checks'
+          },
      ];
 
      constructor(private router: Router) { }

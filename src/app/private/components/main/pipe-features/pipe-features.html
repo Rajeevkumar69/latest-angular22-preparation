@@ -1,0 +1,367 @@
+<div class="container-fluid pipes-page">
+     <div class="mb-2">
+          <h2 class="page-title mt-2">Angular Pipes</h2>
+          <p class="text-muted mb-0">
+               Angular Pipes transform and format data directly in templates,
+               making values easier to read and display without modifying the original data.
+          </p>
+     </div>
+     <div class="row mb-2">
+          <div class="col-12">
+               <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <div class="row g-3">
+                              <div class="col-12 col-md-4">
+                                   <div class="definition-box h-100">
+                                        <h6 class="fw-bold">What is a Pipe?</h6>
+                                        <p class="mb-0">
+                                             A pipe is a feature used to transform data in an Angular template.
+                                        </p>
+                                   </div>
+                              </div>
+
+                              <div class="col-12 col-md-4">
+                                   <div class="definition-box h-100">
+                                        <h6 class="fw-bold">Why use Pipes?</h6>
+                                        <p class="mb-0">
+                                             Pipes transform data for display without changing the original value.
+                                        </p>
+                                   </div>
+                              </div>
+
+                              <div class="col-12 col-md-4">
+                                   <div class="definition-box h-100">
+                                        <h6 class="fw-bold">How do Pipes work?</h6>
+                                        <p class="mb-0">
+                                             A pipe takes data as input, transforms it, and returns the transformed
+                                             value for display.
+                                        </p>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="row mb-2">
+          <div class="col-12">
+               <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <div class="row g-3">
+                              <div class="col-12 col-md-6">
+                                   <div class="definition-box h-100">
+                                        <h6 class="fw-bold">What is a Pure Pipe?</h6>
+                                        <p class="mb-0">
+                                             A pure pipe runs when Angular detect a relevant changes in it's input.
+                                        </p>
+                                   </div>
+                              </div>
+
+                              <div class="col-12 col-md-6">
+                                   <div class="definition-box h-100">
+                                        <h6 class="fw-bold">Why use Impure Pipe?</h6>
+                                        <p class="mb-0">
+                                             A Impure pipe runs more frequently & may affect application performance.
+                                        </p>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="row g-4">
+          <div class="col-12 col-lg-6">
+               <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <div class="d-flex justify-content-between align-items-center mb-3">
+                              <h5 class="fw-bold mb-0">Text Transformation Pipes</h5>
+                              <span class="badge bg-primary-subtle text-primary">3 Examples</span>
+                         </div>
+
+                         <p class="text-secondary small">
+                              Convert text into uppercase, lowercase, or title case.
+                         </p>
+
+                         <div class="example-box mb-3">
+                              <h6 class="fw-semibold">Uppercase Pipe</h6>
+                              <p class="text-secondary small mb-2">Converts text into capital letters.</p>
+                              <pre><code>{{ title() | uppercase }}</code></pre>
+                              <div class="output-box">
+                                   <span class="small text-secondary">Output</span>
+                                   <p class="mb-0 fw-semibold">{{ title() | uppercase }}</p>
+                              </div>
+                         </div>
+
+                         <div class="example-box mb-3">
+                              <h6 class="fw-semibold">Lowercase Pipe</h6>
+                              <p class="text-secondary small mb-2">Converts text into small letters.</p>
+                              <pre><code>{{ title() | lowercase }}</code></pre>
+                              <div class="output-box">
+                                   <span class="small text-secondary">Output</span>
+                                   <p class="mb-0 fw-semibold">{{ title() | lowercase }}</p>
+                              </div>
+                         </div>
+
+                         <div class="example-box">
+                              <h6 class="fw-semibold">Titlecase Pipe</h6>
+                              <p class="text-secondary small mb-2">Capitalizes the first letter of each word.</p>
+                              <pre><code>{{ title() | titlecase }}</code></pre>
+                              <div class="output-box">
+                                   <span class="small text-secondary">Output</span>
+                                   <p class="mb-0 fw-semibold">{{ title() | titlecase }}</p>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+               <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <div class="d-flex justify-content-between align-items-center mb-3">
+                              <h5 class="fw-bold mb-0">Async Pipe</h5>
+                              <span class="badge bg-success-subtle text-success">Observable / Promise</span>
+                         </div>
+
+                         <p class="text-secondary">
+                              Async Pipe subscribes to an Observable or Promise and provides its latest value
+                              to the template. It automatically unsubscribes when the component is destroyed.
+                         </p>
+
+                         <div class="example-box">
+                              <h6 class="fw-semibold">Code Example</h6>
+                              <pre><code>@for (user of users | async; track user.id) {
+     &lt;p&gt; {{user.title}} &lt;/p&gt;
+}</code></pre>
+                              <div class="output-box">
+                                   <span class="small text-secondary">Output</span>
+                                   @for (user of users | async; track user.id) {
+                                   <p class="mb-2">{{ user.title }}</p>
+                                   }
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+               <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <h5 class="fw-bold mb-3">Currency Pipe</h5>
+                         <p class="text-secondary small">Formats a numeric value as currency.</p>
+
+                         <div class="example-box">
+                              <pre><code>{{amount() | currency:'INR' }}</code></pre>
+                              <div class="output-box">
+                                   <span class="small text-secondary">Output</span>
+                                   <h5 class="fw-bold mb-0">{{ amount() | currency:'INR' }}</h5>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+               <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <h5 class="fw-bold mb-3">Date Pipe</h5>
+                         <p class="text-secondary small">Formats a date into a readable format.</p>
+
+                         <div class="example-box">
+                              <pre><code>{{ today() | date:'dd-MM-yyyy' }}</code></pre>
+                              <div class="output-box">
+                                   <span class="small text-secondary">Output</span>
+                                   <h5 class="fw-bold mb-0">{{ today() | date:'dd-MM-yyyy' }}</h5>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+               <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <h5 class="fw-bold mb-3">Decimal Pipe</h5>
+                         <p class="text-secondary small">Formats numbers with a specified number of decimal places.</p>
+
+                         <div class="example-box">
+                              <pre><code>{{ price() | number:'1.2-2' }}</code></pre>
+                              <div class="output-box">
+                                   <span class="small text-secondary">Output</span>
+                                   <h5 class="fw-bold mb-0">{{ price() | number:'1.2-2' }}</h5>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+               <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <h5 class="fw-bold mb-3">Percent Pipe</h5>
+                         <p class="text-secondary small">Converts a decimal value into a percentage representation.</p>
+
+                         <div class="example-box">
+                              <pre><code>{{discount() | percent }}</code></pre>
+                              <div class="output-box">
+                                   <span class="small text-secondary">Output</span>
+                                   <h5 class="fw-bold mb-0">{{ discount() | percent }}</h5>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+               <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <h5 class="fw-bold mb-3">Slice Pipe</h5>
+                         <p class="text-secondary small">Extracts a portion of a string or array.</p>
+
+                         <div class="example-box">
+                              <pre><code>{{ userName() | slice:0: 5 }}</code></pre>
+                              <div class="output-box">
+                                   <span class="small text-secondary">Output</span>
+                                   <h5 class="fw-bold mb-0">{{ userName() | slice:0: 5 }}</h5>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+               <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <h5 class="fw-bold mb-3">i18nPlural Pipe</h5>
+                         <p class="text-secondary small">Displays different messages depending on a numeric value.</p>
+
+                         <div class="example-box">
+                              <pre><code>{{
+     items() | i18nPlural:{
+          '=0' : 'No Items',
+          '=1' : 'One Items',
+          'others' : '# Items'
+     }
+}}</code></pre>
+                              <div class="output-box">
+                                   <span class="small text-secondary">Output</span>
+                                   <h5 class="fw-bold mb-0">
+                                        {{
+                                        items() | i18nPlural:{
+                                        '=0' : 'No Items',
+                                        '=1' : 'One Items',
+                                        'others' : '# Items'
+                                        }
+                                        }}
+                                   </h5>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+               <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <h5 class="fw-bold mb-3">i18nSelect Pipe</h5>
+                         <p class="text-secondary small">Selects a string based on a matching key.</p>
+
+                         <div class="example-box">
+                              <pre><code>{{
+     gender() | i18nSelect:{
+          'male' : 'He',
+          'female' : 'She',
+          'others' : 'They'
+     }
+}}</code></pre>
+                              <div class="output-box">
+                                   <span class="small text-secondary">Output</span>
+                                   <h5 class="fw-bold mb-0">
+                                        {{
+                                        gender() | i18nSelect:{
+                                        'male' : 'He',
+                                        'female' : 'She',
+                                        'others' : 'They'
+                                        }
+                                        }}
+                                   </h5>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+               <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <h5 class="fw-bold mb-3">JSON Pipe</h5>
+                         <p class="text-secondary small">Converts an object or value into a JSON string for debugging.
+                         </p>
+
+                         <div class="example-box">
+                              <pre><code>{{userData() | json}}</code></pre>
+                              <div class="output-box">
+                                   <span class="small text-secondary">Output</span>
+                                   <pre class="mb-0">{{ userData() | json }}</pre>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+               <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <h5 class="fw-bold mb-3">KeyValue Pipe</h5>
+                         <p class="text-secondary small">Iterates over the key-value pairs of an object or Map.</p>
+
+                         <div class="example-box">
+                              <pre><code>@for (user of users | keyvalue ; track user.key) {
+     &lt;p&gt; {{user.key}} : {{user.value}} &lt;/p&gt;
+}</code></pre>
+                              <div class="output-box">
+                                   <span class="small text-secondary">Output</span>
+                                   @for (user of users | keyvalue ; track user.key) {
+                                   <p class="mb-2">{{user.key}} : {{user.value}}</p>
+                                   }
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+     </div>
+
+     <div class="row mt-2">
+          <div class="col-12">
+               <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <h5 class="fw-bold mb-2">Custom Pipe</h5>
+                         @for (employee of employeeData(); track employee.id) {
+                         <small> Name:&nbsp;{{ employee.name }} </small>
+                         <small class="text-dark-emphasis"> Role:&nbsp;{{ employee.role | role }} </small> <br>
+                         }
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="row mt-2">
+          <div class="col-12">
+               <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                         <h5 class="fw-bold mb-2">Important Note</h5>
+                         <p class="text-secondary mb-0">
+                              Angular pipes are pure by default. They execute when their input value or input references
+                              change.
+                              Use AsyncPipe for automatic subscription management and consider a custom pipe
+                              when you need reusable data transformation logic.
+                         </p>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>

@@ -10,7 +10,7 @@ export class UsersDataService {
 
      // GET Request
      public getPosts() {
-          return this.http.get<Post>(`${this.apiUrl}?_limit=15`);
+          return this.http.get<any>(`${this.apiUrl}?_limit=15`);
      }
 
      // POST Request
