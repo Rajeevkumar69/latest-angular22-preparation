@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
      selector: 'app-child-component',
@@ -12,6 +12,8 @@ import { Component } from '@angular/core';
      `
 })
 export class ChildComponent {
+
+     public name = input();
 
      public showMessage() {
           alert('Hello from Child Component!');

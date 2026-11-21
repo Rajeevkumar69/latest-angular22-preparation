@@ -70,6 +70,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/pipe-features/pipe-features').then((c) => c.PipeFeatures)
      },
      {
+          path: 'lifecycle-hooks',
+          loadComponent: () => import('../../components/main/lifecycle-hooks/lifecycle-hooks').then((c) => c.LifecycleHooks)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'

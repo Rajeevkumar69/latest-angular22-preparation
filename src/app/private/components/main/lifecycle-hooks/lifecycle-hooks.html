@@ -1,0 +1,315 @@
+<div class="container-fluid">
+     <div class="mb-2">
+          <h2 class="page-title mt-2">Angular Component Lifecycle</h2>
+          <p class="text-muted mb-0">
+               Angular calls at different stages of a component's life cycle. These hooks allow developers to execute
+               specific code at specific points such as when a component is initialized, updated or destroyed.
+          </p>
+     </div>
+
+     <div class="row">
+          <div class="col-12 mt-2">
+               <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                         <div class="row g-3 align-items-stretch text-center">
+
+                              <div class="col-12 col-sm-6 col-lg">
+                                   <div class="h-100 rounded-3 p-3 bg-primary bg-opacity-10">
+                                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3"
+                                             style="width:48px;height:48px;">
+                                             <i class="bi bi-puzzle-fill fs-4"></i>
+                                        </div>
+                                        <h6 class="fw-bold">Create</h6>
+                                        <p class="small text-muted mb-0">Angular creates an instance of the component.
+                                        </p>
+                                   </div>
+                              </div>
+
+                              <div class="col-12 col-sm-6 col-lg">
+                                   <div class="h-100 rounded-3 p-3 bg-success bg-opacity-10">
+                                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center mx-auto mb-3"
+                                             style="width:48px;height:48px;">
+                                             <i class="bi bi-gear-fill fs-4"></i>
+                                        </div>
+                                        <h6 class="fw-bold">Initialize</h6>
+                                        <p class="small text-muted mb-0">The component is set up and initialized.</p>
+                                   </div>
+                              </div>
+
+                              <div class="col-12 col-sm-6 col-lg">
+                                   <div class="h-100 rounded-3 p-3 bg-warning bg-opacity-10">
+                                        <div class="rounded-circle bg-warning text-dark d-flex align-items-center justify-content-center mx-auto mb-3"
+                                             style="width:48px;height:48px;">
+                                             <i class="bi bi-arrow-repeat fs-4"></i>
+                                        </div>
+                                        <h6 class="fw-bold">Change Detection</h6>
+                                        <p class="small text-muted mb-0">Angular checks for changes in data and inputs.
+                                        </p>
+                                   </div>
+                              </div>
+
+                              <div class="col-12 col-sm-6 col-lg">
+                                   <div class="h-100 rounded-3 p-3 bg-info bg-opacity-10">
+                                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center mx-auto mb-3"
+                                             style="width:48px;height:48px;">
+                                             <i class="bi bi-display fs-4"></i>
+                                        </div>
+                                        <h6 class="fw-bold">Render</h6>
+                                        <p class="small text-muted mb-0">The component is rendered on the web page.</p>
+                                   </div>
+                              </div>
+
+                              <div class="col-12 col-sm-6 col-lg">
+                                   <div class="h-100 rounded-3 p-3 bg-danger bg-opacity-10">
+                                        <div class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center mx-auto mb-3"
+                                             style="width:48px;height:48px;">
+                                             <i class="bi bi-trash3-fill fs-4"></i>
+                                        </div>
+                                        <h6 class="fw-bold">Destroy</h6>
+                                        <p class="small text-muted mb-0">The component is cleaned up and removed.</p>
+                                   </div>
+                              </div>
+
+                         </div>
+
+                         <div class="bg-light rounded-pill text-center p-3 mt-2">
+                              <p class="text-muted mb-0 small">Angular manages the component through these stages.</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 mt-2">
+               <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                         <h5 class="fw-bold mb-3">Lifecycle Execution Order</h5>
+
+                         <div class="d-flex flex-wrap gap-2">
+                              <span class="badge bg-secondary p-2">Constructor</span>
+                              <span class="badge bg-primary p-2">1. ngOnChanges</span>
+                              <span class="badge bg-primary p-2">2. ngOnInit</span>
+                              <span class="badge bg-primary p-2">3. ngDoCheck</span>
+                              <span class="badge bg-primary p-2">4. ngAfterContentInit</span>
+                              <span class="badge bg-primary p-2">5. ngAfterContentChecked</span>
+                              <span class="badge bg-primary p-2">6. ngAfterViewInit</span>
+                              <span class="badge bg-primary p-2">7. ngAfterViewChecked</span>
+                              <span class="badge bg-success p-2">afterNextRender</span>
+                              <span class="badge bg-success p-2">afterEveryRender</span>
+                              <span class="badge bg-danger p-2">8. ngOnDestroy</span>
+                         </div>
+
+                         <p class="small text-muted mt-3 mb-0">
+                              Constructor is not a lifecycle hook. Render callbacks are separate from lifecycle hooks
+                              and do not have a fixed numbered position in the lifecycle sequence.
+                         </p>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 mt-2">
+               <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                         <h5 class="fw-bold mb-3">Initialize</h5>
+
+                         <div class="mb-4">
+                              <h6 class="fw-bold">1. ngOnChanges</h6>
+                              <p class="text-muted">
+                                   This hook runs whenever an input property changes. It also runs when
+                                   Angular initializes the component's input properties, before ngOnInit.
+                              </p>
+                              <p class="mb-1"><strong>When:</strong> Whenever an input property changes.</p>
+                              <p class="mb-0"><strong>Use case:</strong> Responding to changes in component inputs.</p>
+                         </div>
+
+                         <hr>
+
+                         <div>
+                              <h6 class="fw-bold">2. ngOnInit</h6>
+                              <p class="text-muted">
+                                   This hook runs once after Angular initializes the component's input properties.
+                              </p>
+                              <p class="mb-1"><strong>When:</strong> Once, after the first ngOnChanges.</p>
+                              <p class="mb-0"><strong>Use case:</strong> Component initialization logic, preparing
+                                   initial data and calling APIs.</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 mt-2">
+               <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                         <h5 class="fw-bold mb-3">Change Detection</h5>
+
+                         <div class="mb-4">
+                              <h6 class="fw-bold">3. ngDoCheck</h6>
+                              <p class="text-muted">
+                                   This hook allows developers to implement custom change detection logic.
+                              </p>
+                              <p class="mb-1"><strong>When:</strong> Frequently during Angular change detection.</p>
+                              <p class="mb-0"><strong>Use case:</strong> Detecting changes that Angular's normal change
+                                   detection may not handle as required.</p>
+                         </div>
+
+                         <hr>
+
+                         <div class="mb-4">
+                              <h6 class="fw-bold">4. ngAfterContentInit</h6>
+                              <p class="text-muted">
+                                   This hook runs once after Angular initializes the content projected into the
+                                   component using ng-content.
+                              </p>
+                              <p class="mb-1"><strong>When:</strong> Once, after projected content initialization.</p>
+                              <p class="mb-0"><strong>Use case:</strong> Accessing projected content after
+                                   initialization.</p>
+                         </div>
+
+                         <hr>
+
+                         <div class="mb-4">
+                              <h6 class="fw-bold">5. ngAfterContentChecked</h6>
+                              <p class="text-muted">
+                                   This hook runs whenever Angular checks the projected content of the component.
+                              </p>
+                              <p class="mb-1"><strong>When:</strong> During every relevant projected-content check.</p>
+                              <p class="mb-0"><strong>Use case:</strong> Responding after Angular checks projected
+                                   content.</p>
+                         </div>
+
+                         <hr>
+
+                         <div class="mb-4">
+                              <h6 class="fw-bold">6. ngAfterViewInit</h6>
+                              <p class="text-muted">
+                                   This hook runs once after Angular initializes the component's view and child views.
+                              </p>
+                              <p class="mb-1"><strong>When:</strong> Once, after the component view is initialized.</p>
+                              <p class="mb-0"><strong>Use case:</strong> Working with child components and view elements
+                                   after initialization.</p>
+                         </div>
+
+                         <hr>
+
+                         <div>
+                              <h6 class="fw-bold">7. ngAfterViewChecked</h6>
+                              <p class="text-muted">
+                                   This hook runs whenever Angular checks the component's view and child views.
+                              </p>
+                              <p class="mb-1"><strong>When:</strong> During every relevant view check.</p>
+                              <p class="mb-0"><strong>Use case:</strong> Responding after Angular checks the component
+                                   view.</p>
+                         </div>
+
+                         <div class="alert alert-warning mt-2 mb-0 small">
+                              Avoid heavy operations inside ngDoCheck, ngAfterContentChecked and ngAfterViewChecked
+                              because these hooks can execute frequently.
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 mt-2">
+               <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                         <h5 class="fw-bold mb-3">Render</h5>
+
+                         <div class="mb-4">
+                              <h6 class="fw-bold">afterNextRender</h6>
+                              <p class="text-muted">
+                                   This is a modern Angular render callback, not a lifecycle hook. It runs after Angular
+                                   completes the next render.
+                              </p>
+                              <p class="mb-1"><strong>When:</strong> Once, after the next render.</p>
+                              <p class="mb-0"><strong>Use case:</strong> Performing one-time DOM-related operations
+                                   after rendering.</p>
+                         </div>
+
+                         <hr>
+
+                         <div>
+                              <h6 class="fw-bold">afterEveryRender</h6>
+                              <p class="text-muted">
+                                   This is another modern Angular render callback, not a lifecycle hook. It runs after
+                                   every Angular render.
+                              </p>
+                              <p class="mb-1"><strong>When:</strong> After the initial render and every subsequent
+                                   render.</p>
+                              <p class="mb-0"><strong>Use case:</strong> Performing operations that need to happen after
+                                   each render.</p>
+                         </div>
+
+                         <div class="alert alert-info mt-2 mb-0 small">
+                              Both render callbacks run in the browser, not during server-side rendering (SSR).
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 mt-2">
+               <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                         <h5 class="fw-bold mb-3">Destroy</h5>
+
+                         <div class="mb-4">
+                              <h6 class="fw-bold">8. ngOnDestroy</h6>
+                              <p class="text-muted">This hook runs just before Angular destroys a component.</p>
+                              <p class="mb-1"><strong>When:</strong> Before the component is destroyed.</p>
+                              <p class="mb-0"><strong>Use case:</strong> Cleanup tasks such as clearing timers,
+                                   unsubscribing from subscriptions and releasing resources.</p>
+                         </div>
+
+                         <hr>
+
+                         <div>
+                              <h6 class="fw-bold">DestroyRef</h6>
+                              <p class="text-muted">
+                                   DestroyRef is a modern Angular API that allows developers to register cleanup logic
+                                   when the component or service is destroyed.
+                              </p>
+                              <p class="mb-1"><strong>When:</strong> Its onDestroy callback executes when the associated
+                                   lifecycle scope is destroyed.</p>
+                              <p class="mb-0"><strong>Use case:</strong> Handling cleanup without implementing
+                                   ngOnDestroy. It keeps cleanup logic close to the code that creates the resource.</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 mt-2">
+               <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                         <h5 class="fw-bold mb-3">Important Points to Remember</h5>
+
+                         <ul class="text-muted mb-0">
+                              <li class="mb-2">Constructor executes before Angular lifecycle hooks.</li>
+                              <li class="mb-2">ngOnChanges executes before ngOnInit during initial initialization.</li>
+                              <li class="mb-2">Init hooks execute only once.</li>
+                              <li class="mb-2">Check hooks can execute multiple times during change detection.</li>
+                              <li class="mb-2">afterNextRender and afterEveryRender are render callbacks, not lifecycle
+                                   hooks.</li>
+                              <li class="mb-2">Both render callbacks execute in the browser, not during SSR.</li>
+                              <li class="mb-2">Signals react to state changes; lifecycle hooks handle specific stages of
+                                   a component's lifecycle.</li>
+                              <li>We don't need to implement every lifecycle hook in every component.</li>
+                         </ul>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-12 mt-2 mb-3">
+               <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center">
+                         <h5 class="fw-bold mb-2">Interactive Counter</h5>
+                         <p class="text-muted small">Update the signal value and observe the Angular render cycle.</p>
+
+                         <h1 class="display-3 fw-bold text-primary">{{ counter() }}</h1>
+
+                         <button type="button" class="btn btn-primary btn-sm px-4" (click)="counter.update(c => c + 1)">
+                              <i class="bi bi-plus-circle me-1"></i>
+                              Increase Counter
+                         </button>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>

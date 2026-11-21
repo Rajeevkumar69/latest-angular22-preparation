@@ -86,6 +86,11 @@ export class Sidebar implements OnInit {
                route: '/pipe',
                icon: 'bi bi-ui-checks'
           },
+          {
+               label: 'Lifecycle Hooks',
+               route: '/lifecycle-hooks',
+               icon: 'bi bi-ui-checks'
+          },
      ];
 
      constructor(private router: Router) { }
