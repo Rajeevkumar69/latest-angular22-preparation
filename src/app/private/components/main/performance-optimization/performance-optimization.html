@@ -1,0 +1,365 @@
+<div class="container-fluid">
+     <div class="mb-3">
+          <h3 class="page-title mt-2">Performance Optimization</h3>
+          <p class="text-secondary mb-0">
+               Performance optimization helps Angular applications run faster,
+               respond smoothly and provide a better user experience.
+          </p>
+     </div>
+     <section class="mb-2">
+          <h5 class="fw-semibold">Why Performance Optimization?</h5>
+          <p>
+               As an application grows, it may contain many components, large amounts
+               of data, API calls, images and complex calculations. Handling these
+               resources inefficiently can make the application slow.
+          </p>
+
+          <p class="fw-semibold mb-2">Key Benefits</p>
+          <ul class="text-secondary">
+               <li>Reduce unnecessary change detection and calculations.</li>
+               <li>Improve initial loading speed.</li>
+               <li>Make user interactions faster.</li>
+               <li>Use CPU and memory efficiently.</li>
+               <li>Build faster, smoother and scalable applications.</li>
+          </ul>
+     </section>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold">Performance Optimization Techniques</h5>
+          <ol class="text-secondary mb-0">
+               <li>Track keyword using &#64;for.</li>
+               <li>Signals and computed values.</li>
+               <li>OnPush change detection.</li>
+               <li>Lazy loading.</li>
+               <li>&#64;defer block.</li>
+               <li>Avoid unnecessary computations.</li>
+          </ol>
+     </section>
+
+     <hr>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold">1. &#64;for and Track Keyword</h5>
+
+          <p>
+               Angular uses the track expression to identify each item in a list.
+               This helps Angular update the required DOM elements instead of
+               recreating the entire list.
+          </p>
+
+          <div class="bg-light rounded p-2 mb-3">
+               <pre class="mb-0"><code>{{ '@for (user of users(); track user.id) {' }}
+    {{ '{{ user.name }}' }}
+{{ '}' }}</code></pre>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mb-2">
+               <h6 class="fw-semibold mb-0">Users List</h6>
+               <button class="btn btn-primary btn-sm" (click)="addUser()">
+                    <i class="bi bi-plus-lg me-1"></i> Add User
+               </button>
+          </div>
+
+          <div class="list-group list-group-flush">
+               @for (user of users(); track user.id) {
+               <div class="list-group-item px-2 d-flex justify-content-between">
+                    <span>{{ user.name }}</span>
+                    <small class="text-secondary">ID: {{ user.id }}</small>
+               </div>
+               }
+          </div>
+
+          <p class="text-secondary small mt-2 mb-0">
+               Initially John, Bob and Peter are displayed. Clicking Add User
+               inserts Mike at the beginning of the list.
+          </p>
+     </section>
+
+     <hr>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold">2. Signals and Computed Values</h5>
+
+          <p>
+               Signals track changes in values and identify which parts of the UI
+               depend on those values.
+          </p>
+
+          <div class="bg-light rounded p-2 mb-3">
+               <pre class="mb-0"><code>count = signal(1);
+
+doubleCount = computed(() => count() * 2);</code></pre>
+          </div>
+
+          <div class="row g-3 align-items-center mb-2">
+               <div class="col-6">
+                    <p class="text-secondary mb-1">Count</p>
+                    <h3 class="text-primary mb-0">{{ count() }}</h3>
+               </div>
+               <div class="col-6">
+                    <p class="text-secondary mb-1">Double Count</p>
+                    <h3 class="text-success mb-0">{{ doubleCount() }}</h3>
+               </div>
+          </div>
+
+          <button class="btn btn-primary btn-sm" (click)="incrementCount()">
+               Increment Count
+          </button>
+
+          <p class="text-secondary small mt-2 mb-0">
+               Computed signals are lazy and cached. They recalculate when their
+               dependencies change and are read again.
+          </p>
+     </section>
+
+     <hr>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold">3. OnPush Change Detection</h5>
+
+          <p>
+               OnPush helps Angular focus on components that need updating instead
+               of checking everything unnecessarily.
+          </p>
+
+          <div class="bg-light rounded p-2 mb-3">
+               <pre class="mb-0"><code>changeDetection: ChangeDetectionStrategy.OnPush</code></pre>
+          </div>
+
+          <p class="text-secondary mb-1">Current Count</p>
+          <h3 class="text-primary">{{ count() }}</h3>
+
+          <button class="btn btn-primary btn-sm" (click)="incrementCount()">
+               Increment Count
+          </button>
+
+          <p class="fw-semibold mt-3 mb-2">Angular checks an OnPush component when:</p>
+          <ul class="text-secondary mb-0">
+               <li>It receives a new input value.</li>
+               <li>An event occurs inside the component.</li>
+               <li>A signal used in its template changes.</li>
+          </ul>
+     </section>
+
+     <hr>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold">4. Lazy Loading</h5>
+
+          <p>
+               Lazy loading loads a component only when the user navigates to its
+               route, reducing the initial JavaScript load.
+          </p>
+
+          <p class="fw-semibold mb-2">Before Lazy Loading</p>
+          <div class="bg-light rounded p-2 mb-3">
+               <pre class="mb-0"><code>{{ '{' }}
+    path: 'forms',
+    component: AngularFormsComponent
+{{ '}' }}</code></pre>
+          </div>
+
+          <p class="fw-semibold mb-2">After Lazy Loading</p>
+          <div class="bg-light rounded p-2 mb-3">
+               <pre class="mb-0"><code>{{ '{' }}
+    path: 'forms',
+    loadComponent: () => import(
+        './pages/angular-forms/angular-forms'
+    ).then(c => c.AngularFormsComponent)
+{{ '}' }}</code></pre>
+          </div>
+
+          <p class="text-secondary small mb-0">
+               We can also use loadChildren to lazy load an entire route configuration.
+          </p>
+     </section>
+
+     <hr>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold">5. &#64;defer Block</h5>
+
+          <p>
+               The &#64;defer block delays loading non-critical components until they
+               are needed.
+          </p>
+
+          <div class="bg-light rounded p-2 mb-3">
+               <pre class="mb-0"><code>{{ '@defer (on viewport) {' }}
+    &lt;app-child-forms-demo&gt;&lt;/app-child-forms-demo&gt;
+{{ '} @placeholder {' }}
+    &lt;p&gt;Scroll down to load Angular Forms&lt;/p&gt;
+{{ '}' }}</code></pre>
+          </div>
+
+          <p class="fw-semibold mb-2">Live Example</p>
+
+          @defer (on viewport) {
+          <app-child-forms-demo></app-child-forms-demo>
+          } @placeholder {
+          <div class="bg-light rounded p-3 text-center">
+               <p class="mb-0 text-secondary">
+                    Scroll down to load Angular Forms.
+               </p>
+          </div>
+          } @loading (minimum 500ms) {
+          <div class="text-center p-3">
+               <div class="spinner-border spinner-border-sm text-primary"></div>
+               <span class="ms-2 text-secondary">Loading...</span>
+          </div>
+          }
+
+          <p class="text-secondary small mt-2 mb-0">
+               When the placeholder enters the viewport, Angular loads the
+               component and replaces the placeholder with the actual content.
+          </p>
+     </section>
+
+     <hr>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold">6. Avoiding Unnecessary Computations</h5>
+
+          <p>
+               Calling a method directly inside a template can cause repeated
+               calculations during change detection. Use computed signals to
+               calculate and cache derived values.
+          </p>
+
+          <p class="fw-semibold mb-2">Avoid This Approach</p>
+          <div class="bg-light rounded p-2 mb-3">
+               <pre class="mb-0"><code>calculateTotal() {{ '{' }}
+    return this.products().reduce(
+        (sum, product) => sum + product.price, 0
+    );
+{{ '}' }}</code></pre>
+          </div>
+
+          <p class="fw-semibold mb-2">Use Computed Signal</p>
+          <div class="bg-light rounded p-2 mb-3">
+               <pre class="mb-0"><code>total = computed(() =>
+    this.products().reduce(
+        (sum, product) => sum + product.price, 0
+    )
+);</code></pre>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mb-2">
+               <h6 class="fw-semibold mb-0">Shopping Cart</h6>
+               <button class="btn btn-outline-primary btn-sm" (click)="addProduct()">
+                    <i class="bi bi-plus-lg me-1"></i> Add Product
+               </button>
+          </div>
+
+          <div class="table-responsive">
+               <table class="table table-sm align-middle">
+                    <thead class="table-light">
+                         <tr>
+                              <th>Product</th>
+                              <th class="text-end">Price</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         @for (product of products(); track product.id) {
+                         <tr>
+                              <td>{{ product.name }}</td>
+                              <td class="text-end">
+                                   ₹{{ product.price | number:'1.0-0' }}
+                              </td>
+                         </tr>
+                         }
+                    </tbody>
+                    <tfoot>
+                         <tr>
+                              <th>Total</th>
+                              <th class="text-end text-success">
+                                   ₹{{ total() | number:'1.0-0' }}
+                              </th>
+                         </tr>
+                    </tfoot>
+               </table>
+          </div>
+
+          <p class="text-secondary small mb-0">
+               The initial total is ₹73,000. When the products signal changes,
+               the computed total is recalculated when read again.
+          </p>
+     </section>
+     <hr>
+     <section class="mb-2">
+          <h5 class="fw-semibold">7. Performance Profiling</h5>
+          <p>
+               Before applying optimization techniques, identify where the
+               performance problem is occurring.
+          </p>
+          <div class="row g-3 mb-3">
+               <div class="col-6">
+                    <p class="fw-semibold mb-1">Slow Page Loading</p>
+                    <ul class="text-secondary small">
+                         <li>Bundle sizes</li>
+                         <li>Route loading</li>
+                         <li>Images</li>
+                    </ul>
+               </div>
+               <div class="col-6">
+                    <p class="fw-semibold mb-1">Slow Interactions</p>
+                    <ul class="text-secondary small">
+                         <li>Template expressions</li>
+                         <li>Repeated calculations</li>
+                         <li>Change detection</li>
+                    </ul>
+               </div>
+          </div>
+
+          <p class="fw-semibold mb-2">Chrome DevTools vs Angular DevTools</p>
+
+          <div class="table-responsive">
+               <table class="table table-sm table-bordered align-middle">
+                    <thead class="table-light">
+                         <tr>
+                              <th>Chrome DevTools</th>
+                              <th>Angular DevTools</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         <tr>
+                              <td>HTML and CSS inspection</td>
+                              <td>Component tree</td>
+                         </tr>
+                         <tr>
+                              <td>JavaScript debugging</td>
+                              <td>Component properties</td>
+                         </tr>
+                         <tr>
+                              <td>Network activity</td>
+                              <td>Change detection profiler</td>
+                         </tr>
+                         <tr>
+                              <td>Overall performance</td>
+                              <td>Injector and router trees</td>
+                         </tr>
+                    </tbody>
+               </table>
+          </div>
+
+          <p class="fw-semibold mb-2">How to use Angular DevTools?</p>
+          <ol class="text-secondary mb-0">
+               <li>Install Angular DevTools from Chrome Web Store.</li>
+               <li>Run the application using ng serve.</li>
+               <li>Open browser DevTools and select the Angular tab.</li>
+               <li>Use Components to inspect the component tree.</li>
+               <li>Use Profiler to analyze change detection cycles.</li>
+               <li>Explore Injector Tree and Router Tree.</li>
+          </ol>
+     </section>
+     <hr>
+     <section class="mb-2">
+          <h5 class="fw-semibold">Conclusion</h5>
+          <p class="text-secondary mb-0">
+               Performance optimization is about identifying performance problems
+               and choosing the right solution. These techniques reduce unnecessary
+               work, load resources efficiently and make Angular applications
+               faster and smoother.
+          </p>
+     </section>
+</div>
