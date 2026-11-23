@@ -82,6 +82,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/performance-optimization/performance-optimization').then((c) => c.PerformanceOptimization)
      },
      {
+          path: 'animation-features',
+          loadComponent: () => import('../../components/main/view-transition-features/view-transition-features').then((c) => c.ViewTransitionFeatures)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'

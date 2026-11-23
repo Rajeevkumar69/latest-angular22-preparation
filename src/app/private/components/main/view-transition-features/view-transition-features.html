@@ -1,0 +1,131 @@
+<div class="container-fluid">
+     <div class="page-title mb-2">
+          <h3>Angular Animations & View Transitions</h3>
+     </div>
+
+     <blockquote class="border-start border-4 ps-3 py-2 mb-2">
+          Angular provides modern CSS-based animation APIs to animate elements entering or leaving the DOM.
+          View Transitions create smooth visual transitions when navigating between different routes.
+     </blockquote>
+
+     <h5 class="fw-semibold mb-2">1. Modern Animation APIs</h5>
+
+     <p class="text-muted mb-2">
+          Angular provides two APIs to handle animations when elements are added to or removed from the DOM.
+     </p>
+
+     <div class="mb-2">
+          <h6 class="fw-semibold mb-1">animate.enter</h6>
+          <p class="text-muted mb-2">
+               Runs an animation when an element enters the DOM. It is useful for displaying messages, dropdowns and
+               dynamically added elements.
+          </p>
+
+          <h6 class="fw-semibold mb-1">animate.leave</h6>
+          <p class="text-muted mb-0">
+               Runs an animation before an element is removed from the DOM. Angular waits for the leave animation to
+               complete before removing the element.
+          </p>
+     </div>
+
+     <div class="alert alert-light border py-2 mb-2">
+          <strong>Remember:</strong> animate.enter handles DOM entry, while animate.leave handles DOM removal.
+     </div>
+
+     <h5 class="fw-semibold mb-2">2. CSS Animations</h5>
+
+     <p class="text-muted mb-2">
+          CSS animations define how an element changes its appearance over time. Angular allows us to apply these
+          animations using CSS classes.
+     </p>
+
+     <p class="fw-semibold mb-1">Important CSS Properties</p>
+
+     <ul class="mb-2">
+          <li><strong>opacity:</strong> Controls the visibility of an element.</li>
+          <li><strong>transform:</strong> Changes the position or appearance of an element.</li>
+          <li><strong>animation:</strong> Defines the animation name, duration and timing function.</li>
+          <li><strong>@keyframes:</strong> Defines the different stages of an animation.</li>
+     </ul>
+
+     <p class="text-muted mb-2">
+          <strong>Note:</strong> Global CSS animations can be defined once in styles.css and reused across multiple
+          components.
+     </p>
+
+     <h5 class="fw-semibold mb-2">3. View Transitions</h5>
+
+     <blockquote class="border-start border-4 ps-3 py-2 mb-2">
+          View Transitions create smooth visual transitions between the old and new page when navigating between Angular
+          routes.
+     </blockquote>
+
+     <p class="fw-semibold mb-1">withViewTransitions()</p>
+
+     <p class="text-muted mb-2">
+          Angular Router provides withViewTransitions() to integrate the browser's native View Transitions API with
+          route navigation.
+     </p>
+
+     <p class="fw-semibold mb-1">Customizing View Transitions</p>
+
+     <p class="text-muted mb-2">
+          We can customize page transitions using CSS pseudo-elements:
+     </p>
+
+     <ul class="mb-2">
+          <li><strong>::view-transition-old(root)</strong> – Targets the previous page view and applies the exit
+               animation.</li>
+          <li><strong>::view-transition-new(root)</strong> – Targets the new page view and applies the entry animation.
+          </li>
+     </ul>
+
+     <p class="text-muted mb-2">
+          For example, we can apply fade-out and fade-in animations with translateY() to create smooth page transitions.
+     </p>
+
+     <h5 class="fw-semibold mb-2">4. Important Points</h5>
+
+     <ul class="mb-2">
+          <li>Global CSS animations can be reused across multiple components.</li>
+          <li>animate.enter and animate.leave handle individual DOM element animations.</li>
+          <li>withViewTransitions() enables transitions during Angular route navigation.</li>
+          <li>View Transitions depend on browser support. Unsupported browsers perform normal navigation.</li>
+          <li>Angular Router's View Transition integration is described as developer preview in the tutorial.</li>
+          <li>Older Angular animation APIs are deprecated starting from Angular 20.2.</li>
+     </ul>
+
+     <h5 class="fw-semibold mb-2">5. When to Use?</h5>
+
+     <div class="table-responsive mb-2">
+          <table class="table table-bordered table-sm align-middle mb-0">
+               <thead class="table-light">
+                    <tr>
+                         <th>API</th>
+                         <th>Use Case</th>
+                    </tr>
+               </thead>
+               <tbody>
+                    <tr>
+                         <td>animate.enter</td>
+                         <td>Displaying messages and dynamic elements.</td>
+                    </tr>
+                    <tr>
+                         <td>animate.leave</td>
+                         <td>Animating elements before DOM removal.</td>
+                    </tr>
+                    <tr>
+                         <td>View Transitions</td>
+                         <td>Smooth navigation between pages and routes.</td>
+                    </tr>
+               </tbody>
+          </table>
+     </div>
+
+     <div class="border rounded p-3">
+          <h6 class="fw-semibold mb-2">Quick Summary</h6>
+          <p class="mb-1"><strong>animate.enter:</strong> Element enters DOM.</p>
+          <p class="mb-1"><strong>animate.leave:</strong> Element leaves DOM.</p>
+          <p class="mb-0"><strong>View Transitions:</strong> Smooth transitions between pages.</p>
+     </div>
+</div>

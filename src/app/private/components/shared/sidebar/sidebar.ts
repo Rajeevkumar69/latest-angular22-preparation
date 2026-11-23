@@ -101,6 +101,11 @@ export class Sidebar implements OnInit {
                route: '/performance-optimization',
                icon: 'bi bi-ui-checks'
           },
+          {
+               label: 'Animation Features',
+               route: '/animation-features',
+               icon: 'bi bi-ui-checks'
+          },
      ];
 
      constructor(private router: Router) { }

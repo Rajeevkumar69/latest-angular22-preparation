@@ -1,0 +1,21 @@
+::view-transition-old(root) {
+     animation: fadeOut 550ms ease-out;
+}
+
+::view-transition-new(root) {
+     animation: fadeIn 550ms ease-out;
+}
+
+@keyframes fadeOut {
+     to {
+          opacity: 0;
+          transform: translateY(-10px);
+     }
+}
+
+@keyframes fadeIn {
+     from {
+          opacity: 0;
+          transform: translateY(10px);
+     }
+}
