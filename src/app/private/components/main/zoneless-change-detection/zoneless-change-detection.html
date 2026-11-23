@@ -1,0 +1,211 @@
+<div class="container-fluid ">
+     <div class="page-title mb-2">
+          <h3>Angular Zone.js & Zoneless Change Detection</h3>
+          <p class="text-muted small mb-0">
+               Understanding how Angular detects changes with and without Zone.js.
+          </p>
+     </div>
+     <div class="bg-light border-start border-4 border-primary rounded p-3 mb-2">
+          <h5 class="fw-semibold mb-2">What is Zone.js?</h5>
+          <p class="mb-2">
+               Zone.js is a library that helps Angular track asynchronous operations
+               in an application and trigger change detection when those operations complete.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+               <span class="badge bg-secondary">setTimeout()</span>
+               <span class="badge bg-secondary">setInterval()</span>
+               <span class="badge bg-secondary">HTTP Requests</span>
+               <span class="badge bg-secondary">DOM Events</span>
+               <span class="badge bg-secondary">Promises</span>
+          </div>
+     </div>
+
+     <h5 class="fw-bold mb-2">Zone-based vs Zoneless</h5>
+
+     <div class="row g-3 mb-2">
+          <div class="col-md-6">
+               <div class="border rounded p-3 h-100">
+                    <h6 class="fw-bold text-primary mb-2">
+                         <i class="bi bi-arrow-repeat me-2"></i>
+                         Zone-based Change Detection
+                    </h6>
+
+                    <div class="mb-2">
+                         <span class="badge bg-primary mb-2">01</span>
+                         <p class="mb-0">Angular relies on Zone.js.</p>
+                    </div>
+
+                    <div class="mb-2">
+                         <span class="badge bg-primary mb-2">02</span>
+                         <p class="mb-0">Zone.js tracks asynchronous operations.</p>
+                    </div>
+
+                    <div class="mb-2">
+                         <span class="badge bg-primary mb-2">03</span>
+                         <p class="mb-0">
+                              When these operations complete, Zone.js notifies Angular.
+                         </p>
+                    </div>
+
+                    <div>
+                         <span class="badge bg-primary mb-2">04</span>
+                         <p class="mb-0">
+                              Angular schedules change detection to update the UI.
+                         </p>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-md-6">
+               <div class="border rounded p-3 h-100">
+                    <h6 class="fw-bold text-success mb-2">
+                         <i class="bi bi-lightning-charge me-2"></i>
+                         Zoneless Change Detection
+                    </h6>
+
+                    <div class="mb-2">
+                         <span class="badge bg-success mb-2">01</span>
+                         <p class="mb-0">Angular does not require Zone.js.</p>
+                    </div>
+
+                    <div class="mb-2">
+                         <span class="badge bg-success mb-2">02</span>
+                         <p class="mb-0">
+                              Angular relies on explicit notifications from its APIs.
+                         </p>
+                    </div>
+
+                    <div class="mb-2">
+                         <span class="badge bg-success mb-2">03</span>
+                         <p class="mb-0">
+                              These notifications tell Angular when the UI may need updating.
+                         </p>
+                    </div>
+
+                    <div>
+                         <span class="badge bg-success mb-2">04</span>
+                         <p class="mb-0">
+                              Angular schedules change detection based on these notifications.
+                         </p>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="mb-2">
+          <h5 class="fw-bold mb-2">What triggers change detection in Zoneless?</h5>
+          <p class="text-muted mb-2">
+               Angular uses explicit notifications to determine when a component needs checking.
+          </p>
+
+          <div class="border rounded p-3">
+               <div class="row g-3">
+                    <div class="col-md-6">
+                         <div class="d-flex gap-2">
+                              <i class="bi bi-check-circle-fill text-success"></i>
+                              <div>
+                                   <strong>Updating a Signal</strong>
+                                   <p class="text-muted small mb-0">
+                                        Updating a signal used in a template.
+                                   </p>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-6">
+                         <div class="d-flex gap-2">
+                              <i class="bi bi-check-circle-fill text-success"></i>
+                              <div>
+                                   <strong>markForCheck()</strong>
+                                   <p class="text-muted small mb-0">
+                                        Calling ChangeDetectorRef.markForCheck().
+                                   </p>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-6">
+                         <div class="d-flex gap-2">
+                              <i class="bi bi-check-circle-fill text-success"></i>
+                              <div>
+                                   <strong>Component Input</strong>
+                                   <p class="text-muted small mb-0">
+                                        Updating a component input.
+                                   </p>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-6">
+                         <div class="d-flex gap-2">
+                              <i class="bi bi-check-circle-fill text-success"></i>
+                              <div>
+                                   <strong>Template Events</strong>
+                                   <p class="text-muted small mb-0">
+                                        Handling Angular template events.
+                                   </p>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="mb-2">
+          <h5 class="fw-bold mb-2">Advantages of Zoneless</h5>
+          <div class="row g-3">
+               <div class="col-md-6">
+                    <div class="border-start border-4 border-info ps-3 py-2">
+                         <h6 class="fw-semibold text-info mb-1">
+                              Improved Performance
+                         </h6>
+                         <p class="text-muted mb-0 small">
+                              Can reduce unnecessary change detection scheduling.
+                         </p>
+                    </div>
+               </div>
+
+               <div class="col-md-6">
+                    <div class="border-start border-4 border-success ps-3 py-2">
+                         <h6 class="fw-semibold text-success mb-1">
+                              Smaller Bundle Size
+                         </h6>
+                         <p class="text-muted mb-0 small">
+                              Removing the Zone.js dependency can reduce JavaScript bundle size.
+                         </p>
+                    </div>
+               </div>
+
+               <div class="col-md-6">
+                    <div class="border-start border-4 border-warning ps-3 py-2">
+                         <h6 class="fw-semibold text-warning mb-1">
+                              Better Debugging
+                         </h6>
+                         <p class="text-muted mb-0 small">
+                              Makes stack traces easier to understand.
+                         </p>
+                    </div>
+               </div>
+
+               <div class="col-md-6">
+                    <div class="border-start border-4 border-danger ps-3 py-2">
+                         <h6 class="fw-semibold text-danger mb-1">
+                              Better Compatibility
+                         </h6>
+                         <p class="text-muted mb-0 small">
+                              Reduces dependency on patched browser APIs and improves integration with other libraries.
+                         </p>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <div class="bg-light rounded p-3 mt-4">
+          <h6 class="fw-bold mb-1">Key Takeaway</h6>
+          <p class="mb-0">
+               Zone-based Angular uses Zone.js to detect asynchronous operations,
+               whereas Zoneless Angular uses explicit notifications to schedule
+               change detection when the UI needs updating.
+          </p>
+     </div>
+</div>

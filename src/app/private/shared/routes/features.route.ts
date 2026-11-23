@@ -86,6 +86,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/view-transition-features/view-transition-features').then((c) => c.ViewTransitionFeatures)
      },
      {
+          path: 'zoneless-change-detection',
+          loadComponent: () => import('../../components/main/zoneless-change-detection/zoneless-change-detection').then((c) => c.ZonelessChangeDetection)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'

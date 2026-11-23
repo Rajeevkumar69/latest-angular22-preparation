@@ -106,6 +106,11 @@ export class Sidebar implements OnInit {
                route: '/animation-features',
                icon: 'bi bi-ui-checks'
           },
+          {
+               label: 'Zoneless Change Detection',
+               route: '/zoneless-change-detection',
+               icon: 'bi bi-ui-checks'
+          },
      ];
 
      constructor(private router: Router) { }
