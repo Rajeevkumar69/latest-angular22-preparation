@@ -96,6 +96,11 @@ export class Sidebar implements OnInit {
                route: '/change-detection',
                icon: 'bi bi-ui-checks'
           },
+          {
+               label: 'Performance Optimization',
+               route: '/performance-optimization',
+               icon: 'bi bi-ui-checks'
+          },
      ];
 
      constructor(private router: Router) { }

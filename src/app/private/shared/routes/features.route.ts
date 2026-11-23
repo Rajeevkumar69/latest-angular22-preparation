@@ -78,6 +78,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/change-detections/change-detections').then((c) => c.ChangeDetections)
      },
      {
+          path: 'performance-optimization',
+          loadComponent: () => import('../../components/main/performance-optimization/performance-optimization').then((c) => c.PerformanceOptimization)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'
