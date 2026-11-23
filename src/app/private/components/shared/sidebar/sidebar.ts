@@ -111,6 +111,11 @@ export class Sidebar implements OnInit {
                route: '/zoneless-change-detection',
                icon: 'bi bi-ui-checks'
           },
+          {
+               label: 'SSR & Hydration',
+               route: '/ssr-hydration',
+               icon: 'bi bi-ui-checks'
+          },
      ];
 
      constructor(private router: Router) { }

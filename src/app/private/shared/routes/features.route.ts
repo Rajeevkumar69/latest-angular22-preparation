@@ -90,6 +90,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/zoneless-change-detection/zoneless-change-detection').then((c) => c.ZonelessChangeDetection)
      },
      {
+          path: 'ssr-hydration',
+          loadComponent: () => import('../../components/main/ssr-and-hydration/ssr-and-hydration').then((c) => c.SsrAndHydration)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'
