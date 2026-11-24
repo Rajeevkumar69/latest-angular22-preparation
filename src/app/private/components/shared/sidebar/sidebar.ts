@@ -14,107 +14,107 @@ export class Sidebar implements OnInit {
           {
                label: 'Dashboard',
                route: '/dashboard',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Component',
                route: '/component',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Data Binding',
                route: '/data-binding',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Routing',
                route: '/routing',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Control Flow',
                route: '/control-flow',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Directive',
                route: '/directive',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Template Features',
                route: '/template-features',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Signal',
                route: '/signal',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Service & Dependency Injection',
                route: '/service-dependency-injection',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Users',
                route: '/users',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'HTTP Interceptor',
                route: '/error-handling',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Signal Form',
                route: '/signal-form',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Reactive Forms',
                route: '/reactive-form',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Template Driven Forms',
                route: '/template-driven-form',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Pipe Features',
                route: '/pipe',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Lifecycle Hooks',
                route: '/lifecycle-hooks',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Change Detection',
                route: '/change-detection',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Performance Optimization',
                route: '/performance-optimization',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Animation Features',
                route: '/animation-features',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'Zoneless Change Detection',
                route: '/zoneless-change-detection',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
           {
                label: 'SSR & Hydration',
                route: '/ssr-hydration',
-               icon: 'bi bi-ui-checks'
+               icon: ''
           },
      ];
 

@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StorageService } from '../../../shared/services/storage.service';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-     imports: [CommonModule, FormsModule, ReactiveFormsModule],
+     imports: [CommonModule, FormsModule, ReactiveFormsModule, MatIconModule],
      selector: 'app-header',
      styleUrl: './header.scss',
      templateUrl: './header.html'
