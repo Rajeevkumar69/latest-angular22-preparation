@@ -1,0 +1,168 @@
+<div class="container-fluid ">
+     <div class="mb-2">
+          <h4 class="page-title mb-1">Router Guards</h4>
+          <p class="text-muted mb-0">Angular 22 | Control navigation and protect application routes</p>
+     </div>
+
+     <blockquote class="border-start border-4 ps-3 py-2 mb-2 bg-light">
+          <strong>What are Router Guards?</strong>
+          <p class="mb-0 mt-1">
+               Router Guards are functions that control whether a user can
+               navigate to, leave, or access a particular route in an Angular application.
+          </p>
+     </blockquote>
+
+     <h6 class="fw-semibold mb-2">Types of Router Guards</h6>
+
+     <div class="table-responsive mb-2">
+          <table class="table table-bordered table-sm align-middle mb-0">
+               <thead class="table-light">
+                    <tr>
+                         <th>Guard</th>
+                         <th>Purpose</th>
+                         <th>Use Case</th>
+                    </tr>
+               </thead>
+               <tbody>
+                    <tr>
+                         <td><code>CanActivate</code></td>
+                         <td>Controls access to a route.</td>
+                         <td>Protect Dashboard.</td>
+                    </tr>
+                    <tr>
+                         <td><code>CanActivateChild</code></td>
+                         <td>Controls access to child routes.</td>
+                         <td>Protect Admin routes.</td>
+                    </tr>
+                    <tr>
+                         <td><code>CanDeactivate</code></td>
+                         <td>Controls whether a user can leave a route.</td>
+                         <td>Prevent leaving an unsaved form.</td>
+                    </tr>
+                    <tr>
+                         <td><code>CanMatch</code></td>
+                         <td>Controls whether a route matches the URL.</td>
+                         <td>Role-based route matching.</td>
+                    </tr>
+                    <tr>
+                         <td><code>CanLoad</code></td>
+                         <td>Legacy lazy-loading protection.</td>
+                         <td>Deprecated. Prefer CanMatch.</td>
+                    </tr>
+               </tbody>
+          </table>
+     </div>
+
+     <div class="alert alert-info py-2 mb-2">
+          <strong>Angular 22:</strong>
+          Functional guards are recommended. <code>CanLoad</code> is deprecated.
+          Prefer <code>CanMatch</code> for modern route matching and lazy-loading control.
+     </div>
+
+     <h6 class="fw-semibold mb-2">1. CanActivate</h6>
+     <p class="text-muted mb-2">
+          Checks whether a user is allowed to enter a particular route.
+     </p>
+
+     <pre class="bg-light border rounded p-3 mb-2"><code>export const authGuard: CanActivateFn = () =&gt; &#123;
+     const auth = inject(AuthService);
+     const router = inject(Router);
+
+     return auth.isLoggedIn()
+          ? true
+          : router.createUrlTree(['/login']);
+&#125;;</code></pre>
+
+     <p class="small text-muted mb-2">
+          <strong>Example:</strong> Only authenticated users can access the Dashboard.
+     </p>
+
+     <h6 class="fw-semibold mb-2">2. CanActivateChild</h6>
+     <p class="text-muted mb-2">
+          Checks whether a user can access the child routes of a parent route.
+     </p>
+
+     <pre class="bg-light border rounded p-3 mb-2"><code>export const childGuard: CanActivateChildFn = () =&gt; &#123;
+     return inject(AuthService).isLoggedIn();
+&#125;;</code></pre>
+
+     <p class="small text-muted mb-2">
+          <strong>Example:</strong> Protect all routes under the Admin section.
+     </p>
+
+     <h6 class="fw-semibold mb-2">3. CanDeactivate</h6>
+     <p class="text-muted mb-2">
+          Checks whether a user can leave the current route.
+     </p>
+
+     <pre class="bg-light border rounded p-3 mb-2"><code>export const unsavedGuard: CanDeactivateFn&lt;EditFormComponent&gt; =
+     (component) =&gt; &#123;
+          return component.hasUnsavedChanges()
+               ? confirm('You have unsaved changes. Leave this page?')
+               : true;
+     &#125;;</code></pre>
+
+     <p class="small text-muted mb-2">
+          <strong>Example:</strong> Show confirmation before leaving an unsaved form.
+     </p>
+
+     <h6 class="fw-semibold mb-2">4. CanMatch</h6>
+     <p class="text-muted mb-2">
+          Decides whether a route should match the current URL.
+          If it returns false, Angular can try another matching route.
+     </p>
+
+     <pre class="bg-light border rounded p-3 mb-2"><code>export const roleGuard: CanMatchFn = () =&gt; &#123;
+     return inject(AuthService).hasAdminRole();
+&#125;;</code></pre>
+
+     <p class="small text-muted mb-2">
+          <strong>Example:</strong> Match the Admin route only for users with the Admin role.
+     </p>
+
+     <h6 class="fw-semibold mb-2">5. CanLoad (Deprecated)</h6>
+     <p class="text-muted mb-2">
+          Previously used to prevent lazy-loaded modules from loading
+          when a guard returned false.
+     </p>
+
+     <div class="bg-light border rounded p-3 mb-2">
+          <span class="badge bg-secondary mb-2">Legacy Guard</span>
+          <p class="mb-0 small">
+               Use <code>CanMatch</code> instead in modern Angular applications.
+          </p>
+     </div>
+
+     <hr class="my-2">
+
+     <h6 class="fw-semibold mb-2">Important Points</h6>
+     <ul class="small mb-2">
+          <li>Angular recommends functional guards over class-based guards.</li>
+          <li>Guards can return boolean, UrlTree, RedirectCommand or asynchronous results.</li>
+          <li>Guards can return Observable or Promise values.</li>
+          <li>Client-side guards are not security boundaries. Always validate authorization on the backend.</li>
+     </ul>
+
+     <hr class="my-2">
+
+     <div class="border rounded p-3">
+          <div class="d-flex align-items-start gap-2 mb-2">
+               <input class="form-check-input mt-1" type="checkbox" id="routerGuardRead" [checked]="isCompleted"
+                    (change)="markAsCompleted()">
+               <label for="routerGuardRead" class="fw-semibold">
+                    I have read and understood all the Router Guards concepts.
+               </label>
+          </div>
+
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+               <span class="small text-success fw-semibold" [hidden]="!isCompleted">
+                    <i class="bi bi-check-circle-fill me-1"></i>
+                    Topic completed
+               </span>
+               <button type="button" class="btn btn-primary btn-sm px-4" (click)="goToNextPage()">
+                    Next Topic
+                    <i class="bi bi-arrow-right ms-1"></i>
+               </button>
+          </div>
+     </div>
+</div>

@@ -32,6 +32,11 @@ export class Sidebar implements OnInit {
                icon: ''
           },
           {
+               label: 'Router Guard',
+               route: '/roter-guard',
+               icon: ''
+          },
+          {
                label: 'Control Flow',
                route: '/control-flow',
                icon: ''

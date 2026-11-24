@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { topicCompletionGuard } from '../guards/topic-completion.guard';
 
 export const featuresRoutes: Routes = [
      {
@@ -16,6 +17,11 @@ export const featuresRoutes: Routes = [
      {
           path: 'routing',
           loadComponent: () => import('../../components/main/routings/routings').then((c) => c.Routings)
+     },
+     {
+          path: 'roter-guard',
+          loadComponent: () => import('../../components/main/router-guard/router-guard').then((c) => c.RouterGuard),
+          canDeactivate: [topicCompletionGuard]
      },
      {
           path: 'control-flow',
