@@ -100,6 +100,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/ssr-and-hydration/ssr-and-hydration').then((c) => c.SsrAndHydration)
      },
      {
+          path: 'rxjs-overview',
+          loadComponent: () => import('../../components/main/rxjs-overview/rxjs-overview').then((c) => c.RxjsOverview)
+     },
+     {
           path: '**',
           redirectTo: 'dashboard',
           pathMatch: 'full'

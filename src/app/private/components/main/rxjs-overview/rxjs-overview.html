@@ -1,0 +1,230 @@
+<div class="container-fluid">
+     <div class="mb-2">
+          <h2 class="page-title mt-2">RxJS Overview</h2>
+     </div>
+
+     <section class="mb-2">
+          <p class="text-secondary small mb-2">
+               RxJS (Reactive Extensions for JavaScript) is a JavaScript library used to
+               handle asynchronous data streams using Observables and operators.
+               It helps manage events, API calls, user input and complex asynchronous operations.
+          </p>
+
+          <div class="bg-light border rounded p-3">
+               <div class="small fw-semibold mb-2">Basic Flow</div>
+
+               <div class="d-flex align-items-center flex-wrap gap-2">
+                    <ng-container *ngFor="let item of basicFlow; let last = last">
+                         <span class="badge bg-white text-dark border p-2">
+                              {{ item }}
+                         </span>
+                         <span *ngIf="!last" class="text-primary fw-bold">→</span>
+                    </ng-container>
+               </div>
+          </div>
+     </section>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold mb-2">Core Concepts</h5>
+
+          <div class="row g-2">
+               <div class="col-md-6 col-lg-3" *ngFor="let item of concepts">
+                    <div class="border rounded p-3 h-100">
+                         <h6 class="fw-semibold text-primary">{{ item.title }}</h6>
+                         <p class="small text-secondary mb-0">
+                              {{ item.description }}
+                         </p>
+                    </div>
+               </div>
+          </div>
+     </section>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold mb-2">Types of Subjects</h5>
+
+          <div class="table-responsive">
+               <table class="table table-bordered table-sm align-middle mb-2">
+                    <thead class="table-light">
+                         <tr>
+                              <th>Type</th>
+                              <th>Initial Value</th>
+                              <th>New Subscriber Receives</th>
+                         </tr>
+                    </thead>
+
+                    <tbody>
+                         <tr *ngFor="let item of subjects">
+                              <td class="fw-semibold">{{ item.name }}</td>
+                              <td>{{ item.initial }}</td>
+                              <td>{{ item.behavior }}</td>
+                         </tr>
+                    </tbody>
+               </table>
+          </div>
+
+          <pre class="bg-light border rounded p-3 small mb-0"><code>{{ subjectExample }}</code></pre>
+     </section>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold mb-1">Important RxJS Operators</h5>
+          <p class="small text-secondary mb-2">
+               Six frequently used operators in Angular projects and interviews.
+          </p>
+
+          <div *ngFor="let item of operators; let i = index" class="border-bottom pb-3 mb-2">
+
+               <div class="d-flex justify-content-between align-items-center gap-2 mb-1">
+                    <h6 class="fw-semibold mb-0">
+                         {{ i + 1 }}. {{ item.name }}
+                    </h6>
+
+                    <span class="badge bg-primary-subtle text-primary">
+                         {{ item.category }}
+                    </span>
+               </div>
+
+               <p class="small text-secondary mb-2">
+                    {{ item.description }}
+               </p>
+
+               <pre class="bg-light rounded p-2 small mb-0"><code>{{ item.code }}</code></pre>
+          </div>
+     </section>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold mb-2">Other Important Operators</h5>
+
+          <div class="table-responsive">
+               <table class="table table-bordered table-sm align-middle small mb-0">
+                    <thead class="table-light">
+                         <tr>
+                              <th>Operator</th>
+                              <th>Purpose</th>
+                         </tr>
+                    </thead>
+
+                    <tbody>
+                         <tr *ngFor="let item of otherOperators">
+                              <td class="fw-semibold">{{ item.name }}</td>
+                              <td>{{ item.description }}</td>
+                         </tr>
+                    </tbody>
+               </table>
+          </div>
+     </section>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold mb-2">Real-World Angular Example</h5>
+
+          <p class="small text-secondary mb-2">
+               Search functionality using Reactive Forms and RxJS.
+          </p>
+
+          <pre class="bg-light border rounded p-3 small mb-2"><code>{{ searchExample }}</code></pre>
+
+          <div class="d-flex flex-wrap gap-2">
+               <ng-container *ngFor="let step of searchFlow; let last = last">
+                    <span class="badge bg-white text-secondary border p-2">
+                         {{ step }}
+                    </span>
+                    <span *ngIf="!last" class="text-primary">→</span>
+               </ng-container>
+          </div>
+     </section>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold mb-2">Advantages & Disadvantages</h5>
+
+          <div class="row g-3">
+
+               <div class="col-md-6">
+                    <div class="border rounded p-3 h-100">
+                         <h6 class="text-success fw-semibold mb-2">Advantages</h6>
+
+                         <ul class="small text-secondary ps-3 mb-0">
+                              <li *ngFor="let item of advantages" class="mb-2">
+                                   {{ item }}
+                              </li>
+                         </ul>
+                    </div>
+               </div>
+
+               <div class="col-md-6">
+                    <div class="border rounded p-3 h-100">
+                         <h6 class="text-danger fw-semibold mb-2">Disadvantages</h6>
+
+                         <ul class="small text-secondary ps-3 mb-0">
+                              <li *ngFor="let item of disadvantages" class="mb-2">
+                                   {{ item }}
+                              </li>
+                         </ul>
+                    </div>
+               </div>
+
+          </div>
+     </section>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold mb-2">Alternatives to RxJS</h5>
+
+          <p class="small text-secondary mb-2">
+               Different tools solve different problems. RxJS is not always necessary.
+          </p>
+
+          <div class="table-responsive">
+               <table class="table table-bordered table-sm align-middle small mb-0">
+                    <thead class="table-light">
+                         <tr>
+                              <th>Technology</th>
+                              <th>Best Use Case</th>
+                              <th>Key Difference</th>
+                         </tr>
+                    </thead>
+
+                    <tbody>
+                         <tr *ngFor="let item of alternatives">
+                              <td class="fw-semibold">{{ item.name }}</td>
+                              <td>{{ item.usage }}</td>
+                              <td>{{ item.difference }}</td>
+                         </tr>
+                    </tbody>
+               </table>
+          </div>
+     </section>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold mb-2">Modern Angular: RxJS & Signals</h5>
+
+          <p class="small text-secondary mb-2">
+               Angular provides interoperability APIs to use RxJS and Signals together.
+          </p>
+
+          <div *ngFor="let item of modernAngular; let i = index" class="border rounded p-3 mb-2">
+
+               <h6 class="fw-semibold mb-1">
+                    {{ i + 1 }}. {{ item.name }}
+               </h6>
+
+               <p class="small text-secondary mb-2">
+                    {{ item.description }}
+               </p>
+
+               <pre class="bg-light rounded p-2 small mb-0"><code>{{ item.code }}</code></pre>
+          </div>
+     </section>
+
+     <section class="mb-2">
+          <h5 class="fw-semibold mb-2">Important Interview Questions</h5>
+
+          <div *ngFor="let item of interviewQuestions; let i = index" class="border rounded p-3 mb-2">
+
+               <p class="fw-semibold small mb-1">
+                    {{ i + 1 }}. {{ item.question }}
+               </p>
+
+               <p class="small text-secondary mb-0">
+                    {{ item.answer }}
+               </p>
+          </div>
+     </section>
+</div>

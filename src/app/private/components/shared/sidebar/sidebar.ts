@@ -57,6 +57,11 @@ export class Sidebar implements OnInit {
                icon: ''
           },
           {
+               label: 'RxJs Overview',
+               route: '/rxjs-overview',
+               icon: ''
+          },
+          {
                label: 'Service & Dependency Injection',
                route: '/service-dependency-injection',
                icon: ''
