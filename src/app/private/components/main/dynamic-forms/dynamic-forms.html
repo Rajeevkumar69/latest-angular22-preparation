@@ -1,0 +1,74 @@
+<div class="container-fluid">
+     <div class="mb-2">
+          <h2 class="page-title mt-2">{{ config.title }}</h2>
+          <p class="text-muted mb-0">
+               {{ config.description }}
+          </p>
+     </div>
+
+     <form [formGroup]="dynamicForm" (ngSubmit)="submitForm()">
+          <div class="row g-3">
+               @for (field of config.fields; track field.key) {
+               <div class="col-md-6">
+                    @if (field.type === 'checkbox') {
+
+                    <div class="form-check mt-3">
+                         <input type="checkbox" class="form-check-input" [id]="field.key"
+                              [formControlName]="field.key" />
+
+                         <label class="form-check-label" [for]="field.key">
+                              {{ field.label }}
+                         </label>
+                    </div>
+                    } @else {
+                    <label [for]="field.key" class="form-label fw-semibold">
+                         {{ field.label }}
+                    </label>
+                    @if (field.type === 'select') {
+                    <select class="form-select" [id]="field.key" [formControlName]="field.key">
+                         <option value="" disabled>
+                              {{ field.placeholder || 'Select option' }}
+                         </option>
+
+                         @for (option of field.options || []; track option.value) {
+                         <option [value]="option.value">
+                              {{ option.label }}
+                         </option>
+                         }
+
+                    </select>
+
+                    } @else {
+
+                    <input class="form-control" [id]="field.key" [type]="field.type" [formControlName]="field.key"
+                         [placeholder]="field.placeholder || ''" />
+
+                    }
+
+                    }
+
+                    @if (
+                    dynamicForm.get(field.key)?.invalid &&
+                    dynamicForm.get(field.key)?.touched
+                    ) {
+                    <small class="text-danger">
+                         {{ field.label }} is required or invalid.
+                    </small>
+                    }
+
+               </div>
+
+               }
+
+          </div>
+
+          <div class="d-flex gap-2 mt-2">
+               <button type="submit" class="btn btn-primary px-4">
+                    Submit
+               </button>
+               <button type="button" class="btn btn-outline-secondary px-4" (click)="resetForm()">
+                    Reset
+               </button>
+          </div>
+     </form>
+</div>

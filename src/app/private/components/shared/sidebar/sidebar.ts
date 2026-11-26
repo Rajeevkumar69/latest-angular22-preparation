@@ -92,6 +92,11 @@ export class Sidebar implements OnInit {
                icon: ''
           },
           {
+               label: 'Dynamic Forms',
+               route: '/dynamic-form',
+               icon: ''
+          },
+          {
                label: 'Pipe Features',
                route: '/pipe',
                icon: ''

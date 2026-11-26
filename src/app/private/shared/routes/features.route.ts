@@ -72,6 +72,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/template-driven-forms/template-driven-forms').then((c) => c.TemplateDrivenForms)
      },
      {
+          path: 'dynamic-form',
+          loadComponent: () => import('../../components/main/dynamic-forms/dynamic-forms').then((c) => c.DynamicForms)
+     },
+     {
           path: 'pipe',
           loadComponent: () => import('../../components/main/pipe-features/pipe-features').then((c) => c.PipeFeatures)
      },

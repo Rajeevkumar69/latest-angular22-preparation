@@ -17,3 +17,25 @@ export interface User {
      password: string,
      isChecked: boolean
 }
+export interface DynamicField {
+     key: string;
+     label: string;
+     type: string;
+     placeholder?: string;
+     defaultValue?: string | number | boolean;
+     options?: { label: string; value: string }[];
+     validators?: {
+          required?: boolean;
+          email?: boolean;
+          minLength?: number;
+          maxLength?: number;
+          pattern?: string;
+          min?: number;
+          max?: number;
+     };
+}
+export interface DynamicFormConfig {
+     title: string;
+     description: string;
+     fields: DynamicField[];
+}
