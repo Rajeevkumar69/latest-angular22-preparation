@@ -49,6 +49,7 @@ export class Login implements OnInit {
      public submit() {
           if (!this.loginForm.valid) {
                this.loginForm.markAllAsTouched();
+               alert('Please enter all the required correct details.');
                this.displayAllFormErrors(this.loginForm);
           }
 
