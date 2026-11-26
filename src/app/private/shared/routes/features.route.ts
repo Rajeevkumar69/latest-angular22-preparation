@@ -88,6 +88,10 @@ export const featuresRoutes: Routes = [
           loadComponent: () => import('../../components/main/performance-optimization/performance-optimization').then((c) => c.PerformanceOptimization)
      },
      {
+          path: 'facade-features',
+          loadComponent: () => import('../../components/main/facade-features/facade-features').then((c) => c.FacadeFeatures)
+     },
+     {
           path: 'animation-features',
           loadComponent: () => import('../../components/main/view-transition-features/view-transition-features').then((c) => c.ViewTransitionFeatures)
      },

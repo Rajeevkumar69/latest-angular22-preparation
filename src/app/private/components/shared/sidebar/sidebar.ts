@@ -112,6 +112,11 @@ export class Sidebar implements OnInit {
                icon: ''
           },
           {
+               label: 'Facade',
+               route: '/facade-features',
+               icon: ''
+          },
+          {
                label: 'Animation Features',
                route: '/animation-features',
                icon: ''

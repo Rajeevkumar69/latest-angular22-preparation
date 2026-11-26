@@ -1,0 +1,130 @@
+<div class="container-fluid ">
+     <div class="mb-4">
+          <h2 class="page-title mt-2">Facade Pattern</h2>
+          <p class="text-muted mb-0">
+               Angular Architecture · Design Patterns
+          </p>
+     </div>
+
+     <div class="border rounded-3 p-3 mb-2">
+          <h6 class="fw-bold mb-2">What is a Facade?</h6>
+
+          <p class="mb-2">
+               A facade provides a simplified Interface. It hides Implementation
+               details from components. Components dont need to know where data comes from.
+          </p>
+
+          <div class="bg-light rounded-2 p-2 small text-muted">
+               It acts as a single entry point between the UI layer and underlying services.
+          </div>
+     </div>
+
+     <div class="border rounded-3 p-3 mb-2">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+               <h6 class="fw-bold mb-0">How Facade Works</h6>
+               <span class="badge bg-success-subtle text-success">Architecture</span>
+          </div>
+
+          <div class="d-flex flex-column align-items-center gap-2">
+
+
+               <div class="border rounded-3 p-3 text-center w-75 bg-primary-subtle">
+                    <i class="bi bi-window fs-4 text-primary"></i>
+                    <div class="fw-semibold">Component (UI)</div>
+                    <small class="text-muted">Handles user interactions</small>
+               </div>
+
+               <i class="bi bi-arrow-down fs-4 text-secondary"></i>
+
+
+               <div class="border border-success rounded-3 p-3 text-center w-100 bg-success-subtle">
+                    <i class="bi bi-layers fs-4 text-success"></i>
+                    <div class="fw-bold">Facade Service</div>
+                    <small class="text-muted">Centralized state & business logic</small>
+               </div>
+
+               <i class="bi bi-arrow-down fs-4 text-secondary"></i>
+
+
+               <div class="row g-2 w-100">
+                    <div class="col-6">
+                         <div class="border rounded-3 p-3 text-center h-100">
+                              <i class="bi bi-cloud-arrow-down fs-4 text-primary"></i>
+                              <div class="fw-semibold small">API Service</div>
+                              <small class="text-muted">HTTP requests</small>
+                         </div>
+                    </div>
+
+                    <div class="col-6">
+                         <div class="border rounded-3 p-3 text-center h-100">
+                              <i class="bi bi-database fs-4 text-primary"></i>
+                              <div class="fw-semibold small">Other Services</div>
+                              <small class="text-muted">Data & operations</small>
+                         </div>
+                    </div>
+               </div>
+
+          </div>
+     </div>
+
+     <div class="border rounded-3 p-3 mb-2">
+          <h6 class="fw-bold mb-2">Advantages</h6>
+
+          <div class="row g-3">
+               <div class="col-md-6">
+                    <div class="d-flex gap-2 align-items-start">
+                         <i class="bi bi-rocket-takeoff text-primary fs-5"></i>
+                         <div>
+                              <div class="fw-semibold">Deploying</div>
+                              <small class="text-muted">Helps isolate implementation changes and integration
+                                   concerns.</small>
+                         </div>
+                    </div>
+               </div>
+
+               <div class="col-md-6">
+                    <div class="d-flex gap-2 align-items-start">
+                         <i class="bi bi-code-slash text-success fs-5"></i>
+                         <div>
+                              <div class="fw-semibold">Cleaner Component</div>
+                              <small class="text-muted">Keeps components focused on UI and user interactions.</small>
+                         </div>
+                    </div>
+               </div>
+
+               <div class="col-md-6">
+                    <div class="d-flex gap-2 align-items-start">
+                         <i class="bi bi-arrow-repeat text-info fs-5"></i>
+                         <div>
+                              <div class="fw-semibold">Easier Refactoring</div>
+                              <small class="text-muted">Underlying service changes can be isolated behind the
+                                   facade.</small>
+                         </div>
+                    </div>
+               </div>
+
+               <div class="col-md-6">
+                    <div class="d-flex gap-2 align-items-start">
+                         <i class="bi bi-diagram-3 text-warning fs-5"></i>
+                         <div>
+                              <div class="fw-semibold">Centralized Business Logic</div>
+                              <small class="text-muted">Keeps business operations in a centralized layer.</small>
+                         </div>
+                    </div>
+               </div>
+
+          </div>
+     </div>
+
+     <div class="bg-light border-start border-4 border-success rounded-2 p-3 mb-2">
+          <div class="fw-bold mb-2">
+               <i class="bi bi-book me-2 text-success"></i>
+               Core Concept
+          </div>
+
+          <p class="mb-0">
+               A facade iss an bastraction layer that sits between components &
+               underlying services. Providing a simplified & decoupled API for the UI layer.
+          </p>
+     </div>
+</div>
