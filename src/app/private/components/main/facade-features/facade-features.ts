@@ -12,7 +12,7 @@ export class FacadeFeatures implements OnInit {
      private userFacade = inject(UserFacade);
 
      ngOnInit(): void {
-          this.getAllPost();
+          // this.getAllPost();
      }
 
      public getAllPost() {
